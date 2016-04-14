@@ -16,13 +16,11 @@ class TodoView(APIView):
         return Response(response.data)
 
     def post(self, request, format=None):
-        todo = self.serializer_class(data=request.data)
+        serializer = self.serializer_class(data=request.data)
 
-        if todo.is_valid():
-            obj = todo.object
-            obj.propietario = request.user
-            obj.save()
-            resp = self.serializer_class(obj, many=False)
+        if serializer.is_valid():
+            serializer.save()
+            resp = self.serializer_class(serializer, many=False)
             return Response(resp.data)
         else:
             return Response(todo.errors)
