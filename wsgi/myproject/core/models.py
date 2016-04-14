@@ -6,7 +6,9 @@ class Todo(models.Model):
     fecha_creado = models.DateTimeField(auto_now=True)
     fecha_finalizado = models.DateTimeField()
     propietario = models.ForeignKey(User)
-    why = models.CharField(max_length=200,null=True)
+    todo = models.TextField()
+    why = models.CharField(max_length=200, null=True)
+    description = models.CharField(max_length=200, null=True)
 
     def __unicode__(self):
         return self.why
