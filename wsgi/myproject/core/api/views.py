@@ -4,24 +4,26 @@ from rest_framework.views import APIView
 from core.api.serializers import UserSerializer, TodoSerializer
 from django.contrib.auth.models import User
 from core.models import Todo
+from django.http import Http404
+from rest_framework import status
+
 
 # Create your views here.
 
 class TodoView(APIView):
-    serializer_class = TodoSerializer
 
     def get(self, request, id=None, format=None):
         todos = Todo.objects.all()
-        response = self.serializer_class(todos, many=True)
+        response = TodoSerializer(todos, many=True)
         return Response(response.data)
 
     def post(self, request, format=None):
-        serializer = self.serializer_class(data=request.data)
+        serializer = TodoSerializer(data=request.data)
 
         if serializer.is_valid():
-            return Response(serializer)
-        else:
-            return Response(serializer.errors)
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 to_do = TodoView.as_view()
 
