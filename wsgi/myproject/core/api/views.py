@@ -19,7 +19,10 @@ class TodoView(APIView):
         todo = self.serializer_class(data=request.data)
 
         if todo.is_valid():
-            return Response({'msg': 'erferfr'})
+            todo.propietario = request.user
+            todo.save()
+            resp = self.serializer_class(todo, many=False)
+            return Response(resp.data)
         else:
             return Response(todo.errors)
 
