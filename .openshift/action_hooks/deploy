@@ -9,11 +9,7 @@ if [ ! -f "$OPENSHIFT_DATA_DIR"secrets.json ]; then
 	python "$OPENSHIFT_REPO_DIR"libs/secrets.py > "$OPENSHIFT_DATA_DIR"secrets.json
 fi
 
-
-
 # python "$OPENSHIFT_REPO_DIR"wsgi/myproject/manage.py makemigrations core
-
-
 
 cp -r "$OPENSHIFT_DATA_DIR"migrations "$OPENSHIFT_REPO_DIR"wsgi/myproject/core/
 rm -rf "$OPENSHIFT_DATA_DIR"migrations
