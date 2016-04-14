@@ -12,3 +12,11 @@ class Todo(models.Model):
 
     def __unicode__(self):
         return self.why
+
+
+class Currencies(models.Model):
+    currency_name = models.CharField(max_length=200,null=True)
+    short_name = models.TextField()
+
+    def __unicode__(self):
+        return self.currency_name
