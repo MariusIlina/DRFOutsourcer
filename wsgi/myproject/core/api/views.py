@@ -19,7 +19,6 @@ class TodoView(APIView):
         todo = self.serializer_class(data=request.data)
 
         if todo.is_valid():
-            todo.propietario = request.user
             todo.save()
             resp = self.serializer_class(todo, many=False)
             return Response(resp.data)
