@@ -16,7 +16,7 @@ class TodoView(APIView):
         return Response(response.data)
 
     def post(self, request, format=None):
-        todo = self.serializer_class(data=request.DATA)
+        todo = self.serializer_class(data=request.data)
         return Response({'msg': 'proba'})
 
         # if todo.is_valid():
