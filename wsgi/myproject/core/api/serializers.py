@@ -10,4 +10,4 @@ class UserSerializer(ModelSerializer):
 class TodoSerializer(ModelSerializer):
     class Meta:
         model = Todo
-        fields = ('id', 'fecha_creado', 'fecha_finalizado', 'todo', 'hecho', 'propietario')
+        fields = ('id', 'fecha_creado', 'fecha_finalizado', 'todo', 'hecho')
