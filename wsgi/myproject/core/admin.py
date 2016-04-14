@@ -3,5 +3,8 @@ from .models import Todo, Currencies
 
 
 # Register your models here.
-admin.site.register(Todo)
+class TodoAdmin(admin.ModelAdmin):
+    list_display = ('propietario', 'todo', 'hecho')
+
+admin.site.register(Todo, TodoAdmin)
 admin.site.register(Currencies)
