@@ -23,7 +23,7 @@ class TodoView(APIView):
             resp = self.serializer_class(todo, many=False)
             return Response(resp.data)
         else:
-            return Response(todo.errors)
+            return Response({'eferf': 'eferfe'})
 
 to_do = TodoView.as_view()
 
