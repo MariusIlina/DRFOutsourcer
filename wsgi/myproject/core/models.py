@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Todo(models.Model):
     fecha_creado = models.DateTimeField(auto_now=True)
-    fecha_finalizado = models.DateTimeField()
-    propietario = models.ForeignKey(User)
+    fecha_finalizado = models.DateTimeField(blank=True, null=True)
+    propietario = models.ForeignKey(User,related_name='propietario')
     todo = models.TextField(default=0)
     why = models.CharField(max_length=200, null=True)
     description = models.TextField(default=0)
