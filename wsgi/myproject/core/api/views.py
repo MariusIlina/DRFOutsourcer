@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from core.api.serializers import UserSerializer, TodoSerializer
+from core.api.serializers import UserSerializer, TodoSerializer, CurrencySerializer
 from django.contrib.auth.models import User
 from core.models import Todo
 from django.http import Http404
@@ -9,6 +9,25 @@ from rest_framework import status
 
 
 # Create your views here.
+
+class CurrencyView(APIView):
+
+    def get(self, request, id=None, format=None):
+        curr = Todo.objects.all()
+        response = CurrencySerializer(curr, many=True)
+        return Response(response.data)
+
+    def post(self, request, format=None):
+        serializer = CurrencySerializer(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+valuta = CurrencyView.as_view()
+
+
 
 class TodoView(APIView):
 
@@ -21,6 +40,7 @@ class TodoView(APIView):
         serializer = TodoSerializer(data=request.data)
 
         if serializer.is_valid():
+            serializer.propietario = request.user
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
