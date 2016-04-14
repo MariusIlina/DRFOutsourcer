@@ -16,7 +16,16 @@ class TodoView(APIView):
         return Response(response.data)
 
     def post(self, request, format=None):
-        return Response({'msg': 'ok'})
+        todo = self.serializer_class(data=request.DATA)
+
+        if todo.is_valid():
+            # obj = todo.object
+            # obj.propietario = request.user
+            # obj.save()
+            # resp = self.serializer_class(obj, many=False)
+            return Response({'efef':'rtgrg'})
+        else:
+            return Response(todo.errors)
 
 to_do = TodoView.as_view()
 
