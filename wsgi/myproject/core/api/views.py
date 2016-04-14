@@ -19,9 +19,7 @@ class TodoView(APIView):
         serializer = self.serializer_class(data=request.data)
 
         if serializer.is_valid():
-            serializer.save()
-            resp = self.serializer_class(serializer, many=False)
-            return Response(resp.data)
+            return Response(request.data)
         else:
             return Response(serializer.errors)
 
