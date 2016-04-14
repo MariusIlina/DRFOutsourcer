@@ -3,4 +3,5 @@ from .models import Todo, Currencies
 
 
 # Register your models here.
-admin.site.register(Todo, Currencies)
+admin.site.register(Todo)
+admin.site.register(Currencies)
