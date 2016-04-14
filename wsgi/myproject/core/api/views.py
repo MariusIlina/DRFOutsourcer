@@ -19,11 +19,13 @@ class TodoView(APIView):
         todo = self.serializer_class(data=request.data)
 
         if todo.is_valid():
-            todo.save()
-            resp = self.serializer_class(todo, many=False)
+            obj = todo.object
+            obj.propietario = request.user
+            obj.save()
+            resp = self.serializer_class(obj, many=False)
             return Response(resp.data)
         else:
-            return Response({'eferf': 'eferfe'})
+            return Response(todo.errors)
 
 to_do = TodoView.as_view()
 

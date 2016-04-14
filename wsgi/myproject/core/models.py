@@ -5,15 +5,9 @@ from django.contrib.auth.models import User
 class Todo(models.Model):
     fecha_creado = models.DateTimeField(auto_now=True)
     fecha_finalizado = models.DateTimeField(blank=True, null=True)
-    propietario = models.ForeignKey(User,related_name='propietario')
+    propietario = models.ForeignKey(User, related_name='propietario')
     todo = models.TextField(default=0)
-    why = models.CharField(max_length=200, null=True)
-    description = models.TextField(default=0)
     hecho = models.BooleanField(default=False)
-    test = models.CharField(max_length=200,null=True)
-
-    def __unicode__(self):
-        return self.why
 
 
 class Currencies(models.Model):
