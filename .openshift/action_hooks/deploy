@@ -13,8 +13,12 @@ fi
 
 # python "$OPENSHIFT_REPO_DIR"wsgi/myproject/manage.py makemigrations core
 
+
+
 cp -r "$OPENSHIFT_DATA_DIR"migrations "$OPENSHIFT_REPO_DIR"wsgi/myproject/core/
 rm -rf "$OPENSHIFT_DATA_DIR"migrations
+
+
 
 # GETTING-STARTED: change 'myproject' to your project name:
 echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/myproject/manage.py migrate --noinput'"
@@ -25,6 +29,10 @@ python "$OPENSHIFT_REPO_DIR"wsgi/myproject/manage.py migrate --noinput
 echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/myproject/manage.py collectstatic --noinput'"
 # GETTING-STARTED: change 'myproject' to your project name:
 python "$OPENSHIFT_REPO_DIR"wsgi/myproject/manage.py collectstatic --noinput
+
+
+
+cp -r "$OPENSHIFT_REPO_DIR"wsgi/myproject/core/migrations "$OPENSHIFT_DATA_DIR"
 
 
 
