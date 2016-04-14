@@ -16,7 +16,7 @@ class Todo(models.Model):
 
 class Currencies(models.Model):
     currency_name = models.CharField(max_length=200, null=True)
-    short_name = models.TextField()
+    short_name = models.CharField(max_length=200, default=0)
 
     def __unicode__(self):
         return self.currency_name
