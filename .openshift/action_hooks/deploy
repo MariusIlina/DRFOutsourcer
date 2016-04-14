@@ -11,9 +11,7 @@ fi
 
 
 
-if [ ! -d "$OPENSHIFT_REPO_DIR/wsgi/myproject/core/migrations" ]; then
-    cp ${OPENSHIFT_DATA_DIR}/migrations/* ${OPENSHIFT_REPO_DIR}/wsgi/myproject/core/migrations
-fi
+python "$OPENSHIFT_REPO_DIR"wsgi/myproject/manage.py makemigrations core
 
 
 
@@ -29,6 +27,5 @@ python "$OPENSHIFT_REPO_DIR"wsgi/myproject/manage.py collectstatic --noinput
 
 
 
-rm -rf ${OPENSHIFT_DATA_DIR}/migrations
-cp ${OPENSHIFT_REPO_DIR}/wsgi/myproject/core/migrations/* ${OPENSHIFT_DATA_DIR}/migrations
+
 
