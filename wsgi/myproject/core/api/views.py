@@ -1,10 +1,23 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from core.api.serializers import UserSerializer
+from core.api.serializers import UserSerializer, TodoSerializer
 from django.contrib.auth.models import User
+from core.models import Todo
 
 # Create your views here.
+
+class TodoView(APIView):
+    serializer_class = TodoSerializer
+
+    def get(self, request, id=None, format=None):
+        todos = Todo.objects.all()
+        response = self.serializer_class(todos, many=True)
+        return Response(response.data)
+
+to_do = TodoView.as_view()
+
+
 
 class HolaMundo(APIView):
 
@@ -12,6 +25,8 @@ class HolaMundo(APIView):
         return Response({'mensaje':'Hola ' + nombre + ' en el mundo de Django Rest Framework'})
 
 hola_mundo = HolaMundo.as_view()
+
+
 
 class Usuario(APIView):
     serializer_class = UserSerializer
