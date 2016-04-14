@@ -9,7 +9,7 @@ class Todo(models.Model):
     todo = models.TextField(default=0)
     why = models.CharField(max_length=200, null=True)
     description = models.TextField(default=0)
-    hecho = models.BooleanField()
+    hecho = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.why
