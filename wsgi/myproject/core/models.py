@@ -10,6 +10,7 @@ class Todo(models.Model):
     why = models.CharField(max_length=200, null=True)
     description = models.TextField(default=0)
     hecho = models.BooleanField(default=False)
+    test = models.CharField(max_length=200,null=True)
 
     def __unicode__(self):
         return self.why
