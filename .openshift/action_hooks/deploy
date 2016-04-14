@@ -9,7 +9,13 @@ if [ ! -f "$OPENSHIFT_DATA_DIR"secrets.json ]; then
 	python "$OPENSHIFT_REPO_DIR"libs/secrets.py > "$OPENSHIFT_DATA_DIR"secrets.json
 fi
 
-python "$OPENSHIFT_REPO_DIR"wsgi/myproject/manage.py makemigrations core
+
+
+if [ ! -d "$OPENSHIFT_REPO_DIR/wsgi/myproject/core/migrations" ]; then
+    cp ${OPENSHIFT_DATA_DIR}/migrations/* ${OPENSHIFT_REPO_DIR}/wsgi/myproject/core/migrations
+fi
+
+
 
 # GETTING-STARTED: change 'myproject' to your project name:
 echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/myproject/manage.py migrate --noinput'"
@@ -20,3 +26,9 @@ python "$OPENSHIFT_REPO_DIR"wsgi/myproject/manage.py migrate --noinput
 echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/myproject/manage.py collectstatic --noinput'"
 # GETTING-STARTED: change 'myproject' to your project name:
 python "$OPENSHIFT_REPO_DIR"wsgi/myproject/manage.py collectstatic --noinput
+
+
+
+rm -rf ${OPENSHIFT_DATA_DIR}/migrations
+cp ${OPENSHIFT_REPO_DIR}/wsgi/myproject/core/migrations/* ${OPENSHIFT_DATA_DIR}/migrations
+
