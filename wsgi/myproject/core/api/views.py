@@ -5,7 +5,7 @@ from rest_framework.views import APIView
 # Create your views here.
 
 class HolaMundo(APIView):
-    def get(self, request, format=None):
-        return Response({'mensaje':'Hola mundo de Django Rest Framework'})
+    def get(self, request, nombre, format=None):
+        return Response({'mensaje':'Hola ' + nombre + ' en el mundo de Django Rest Framework'})
 
 hola_mundo = HolaMundo.as_view()
