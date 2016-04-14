@@ -11,9 +11,9 @@ fi
 
 
 
-python "$OPENSHIFT_REPO_DIR"wsgi/myproject/manage.py makemigrations core
+# python "$OPENSHIFT_REPO_DIR"wsgi/myproject/manage.py makemigrations core
 
-
+cp -r "$OPENSHIFT_DATA_DIR"migrations "$OPENSHIFT_REPO_DIR"wsgi/myproject/core/
 
 # GETTING-STARTED: change 'myproject' to your project name:
 echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/myproject/manage.py migrate --noinput'"
