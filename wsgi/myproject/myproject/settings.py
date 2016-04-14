@@ -21,6 +21,10 @@ sys.path.append(os.path.join(REPO_DIR, 'libs'))
 import secrets
 SECRETS = secrets.getter(os.path.join(DATA_DIR, 'secrets.json'))
 
+ON_OPENSHIFT = False
+if os.environ.has_key('OPENSHIFT_REPO_DIR'):
+     ON_OPENSHIFT = True
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -85,13 +89,26 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        # GETTING-STARTED: change 'db.sqlite3' to your sqlite3 database:
-        'NAME': os.path.join(DATA_DIR, 'db.sqlite3'),
+if ON_OPENSHIFT:
+     DATABASES = {
+         'default': {
+             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+             'NAME': os.environ['OPENSHIFT_APP_NAME'],
+             'USER': os.environ['OPENSHIFT_POSTGRESQL_DB_USERNAME'],
+             'PASSWORD': os.environ['OPENSHIFT_POSTGRESQL_DB_PASSWORD'],
+             'HOST': os.environ['OPENSHIFT_POSTGRESQL_DB_HOST'],
+             'PORT': os.environ['OPENSHIFT_POSTGRESQL_DB_PORT'],
+         }
+     }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            # GETTING-STARTED: change 'db.sqlite3' to your sqlite3 database:
+            'NAME': os.path.join(DATA_DIR, 'db.sqlite3'),
+        }
     }
-}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
