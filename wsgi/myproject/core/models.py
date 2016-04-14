@@ -8,3 +8,6 @@ class Todo(models.Model):
     propietario = models.ForeignKey(User)
     todo = models.TextField()
     why = models.CharField(max_length=200,null=True)
+
+    def __unicode__(self):
+        return self.why
