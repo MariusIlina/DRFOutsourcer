@@ -57,6 +57,8 @@ INSTALLED_APPS = (
     'rest_framework'
 )
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
