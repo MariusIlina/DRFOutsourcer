@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from core.api.serializers import UserSerializer, TodoSerializer, CurrencySerializer
 from django.contrib.auth.models import User
-from core.models import Todo
+from core.models import Todo, Currencies
 from django.http import Http404
 from rest_framework import status
 
@@ -13,7 +13,7 @@ from rest_framework import status
 class CurrencyView(APIView):
 
     def get(self, request, id=None, format=None):
-        curr = Todo.objects.all()
+        curr = Currencies.objects.all()
         response = CurrencySerializer(curr, many=True)
         return Response(response.data)
 
