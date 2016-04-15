@@ -32,7 +32,7 @@ if os.environ.has_key('OPENSHIFT_REPO_DIR'):
 SECRET_KEY = SECRETS['secret_key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG') == 'True'
+DEBUG = True
 
 from socket import gethostname
 ALLOWED_HOSTS = [
