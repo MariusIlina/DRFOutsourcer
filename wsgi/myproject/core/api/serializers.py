@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from rest_framework.serializers import ModelSerializer, HyperlinkedModelSerializer
+from rest_framework.serializers import ModelSerializer, HyperlinkedModelSerializer, HyperlinkedRelatedField
 from core.models import Item, Size
 
 class SizeSerializer(ModelSerializer):
@@ -16,7 +16,7 @@ class ItemSerializer(ModelSerializer):
 
 class ItemHyperSerializer(HyperlinkedModelSerializer):
 
-    size = rest_framework.serializers.HyperlinkedRelatedField(
+    size = HyperlinkedRelatedField(
         view_name = 'sizeintro',
         lookup_field = 'id',
         many = False,
