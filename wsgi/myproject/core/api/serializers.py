@@ -15,7 +15,7 @@ class ItemSerializer(ModelSerializer):
 
 
 class ItemNestedSerializer(ModelSerializer):
-    size = SizeSerializer(many=True, read_only=True)
+    size = SizeSerializer(read_only=True)
 
     class Meta:
         model = Item
