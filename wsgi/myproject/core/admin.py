@@ -1,15 +1,16 @@
 from django.contrib import admin
-#from .models import Todo, Currencies
+from .models import Item
 
 
-# Register your models here.
-class TodoAdmin(admin.ModelAdmin):
-    list_display = ('propietario', 'todo', 'hecho')
-    exclude = ('propietario',)
+# # Register your models here.
+# class TodoAdmin(admin.ModelAdmin):
+#     list_display = ('propietario', 'todo', 'hecho')
+#     exclude = ('propietario',)
+#
+#     def save_model(self, request, obj, form, change):
+#         obj.propietario = request.user
+#         obj.save()
 
-    def save_model(self, request, obj, form, change):
-        obj.propietario = request.user
-        obj.save()
-
+admin.site.register(Item)
 #admin.site.register(Todo)
-#admin.site.register(Currencies) 
+#admin.site.register(Currencies)

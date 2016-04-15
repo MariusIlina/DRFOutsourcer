@@ -1,14 +1,39 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
-#from core.api.serializers import UserSerializer, TodoSerializer, CurrencySerializer
+from core.api.serializers import ItemSerializer, UserSerializer
 from django.contrib.auth.models import User
-#from core.models import Todo, Currencies
+from core.models import Item
 from django.http import Http404
 from rest_framework import status
 
 
 # Create your views here.
+
+class ItemList(APIView):
+
+    def get(self, request, id=None):
+        items = Item.objects.all()
+        response = ItemSerializer(items, many=True)
+        return Response(response.data)
+
+items = ItemList.as_view()
+
+
+class Usuario(APIView):
+    serializer_class = UserSerializer
+
+    def get(self, request, id=None, format=None):
+        if id != None:
+            users = get_object_or_404(User, pk=id)
+            many = False
+        else:
+            users = User.objects.all()
+            many = True
+        response = self.serializer_class(users, many=many)
+        return Response(response.data)
+
+usuarios = Usuario.as_view()
 
 # class CurrencyView(APIView):
 #
@@ -58,17 +83,3 @@ from rest_framework import status
 #
 #
 #
-# class Usuario(APIView):
-#     serializer_class = UserSerializer
-#
-#     def get(self, request, id=None, format=None):
-#         if id != None:
-#             users = get_object_or_404(User, pk=id)
-#             many = False
-#         else:
-#             users = User.objects.all()
-#             many = True
-#         response = self.serializer_class(users, many=many)
-#         return Response(response.data)
-#
-# usuarios = Usuario.as_view()
