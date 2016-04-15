@@ -12,4 +12,4 @@ class TodoAdmin(admin.ModelAdmin):
         obj.save()
 
 #admin.site.register(Todo)
-#admin.site.register(Currencies)
+#admin.site.register(Currencies) 
