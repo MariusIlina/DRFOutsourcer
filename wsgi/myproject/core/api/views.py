@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from core.api.serializers import ItemSerializer, ItemHyperSerializer, UserSerializer, SizeSerializer
+from core.api.serializers import ItemSerializer, UserSerializer, SizeSerializer #ItemHyperSerializer
 from django.contrib.auth.models import User
 from core.models import Item, Size
 from django.http import Http404
