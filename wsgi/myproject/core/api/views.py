@@ -16,10 +16,10 @@ class SizeList(APIView):
 
     def get(self, request, id=None, format=None):
         if id is not None:
-            sizes = get_object_or_404(User, pk=id)
+            sizes = get_object_or_404(Size, pk=id)
             many = False
         else:
-            sizes = User.objects.all()
+            sizes = Size.objects.all()
             many = True
         response = self.serializer_class(sizes, many=many)
         return Response(response.data)
