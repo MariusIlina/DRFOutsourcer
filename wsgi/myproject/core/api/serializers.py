@@ -1,11 +1,33 @@
 from django.contrib.auth.models import User
-from rest_framework.serializers import ModelSerializer
-from core.models import Item
+from rest_framework.serializers import ModelSerializer, HyperlinkedModelSerializer
+from core.models import Item, Size
+
+class SizeSerializer(ModelSerializer):
+    class Meta:
+        model = Size
+        fields = ('id', 'name', 'short_name')
+
 
 class ItemSerializer(ModelSerializer):
     class Meta:
         model = Item
         fields = ('id', 'name', 'size')
+
+
+class ItemHyperSerializer(HyperlinkedModelSerializer):
+
+    size = serializers.HyperlinkedRelatedField(
+        view_name = 'sizeintro',
+        lookup_field = 'id',
+        many = False,
+        read_only = True
+    )
+
+    class Meta:
+        model = Item
+        fields = ('id', 'name', 'size')
+
+
 
 class UserSerializer(ModelSerializer):
     class Meta:
