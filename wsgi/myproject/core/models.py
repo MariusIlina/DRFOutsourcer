@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Todo(models.Model):
     fecha_creado = models.DateTimeField(auto_now=True)
     fecha_finalizado = models.DateTimeField(blank=True, null=True)
-    propietario = models.ForeignKey(User, related_name='propietario')
+    propietario = models.ForeignKey(User, related_name='propietario', default=0)
     todo = models.TextField(default=0)
     hecho = models.BooleanField(default=False)
 
