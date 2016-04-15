@@ -16,7 +16,7 @@ class ItemSerializer(ModelSerializer):
 
 class ItemHyperSerializer(HyperlinkedModelSerializer):
 
-    size = serializers.HyperlinkedRelatedField(
+    size = rest_framework.serializers.HyperlinkedRelatedField(
         view_name = 'sizeintro',
         lookup_field = 'id',
         many = False,
