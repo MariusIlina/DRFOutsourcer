@@ -14,18 +14,18 @@ class ItemSerializer(ModelSerializer):
         fields = ('id', 'name', 'size')
 
 
-# class ItemHyperSerializer(HyperlinkedModelSerializer):
-#
-#     size = serializers.HyperlinkedRelatedField(
-#         view_name = 'sizeintro',
-#         lookup_field = 'id',
-#         many = False,
-#         read_only = True
-#     )
-#
-#     class Meta:
-#         model = Item
-#         fields = ('id', 'name', 'size')
+class ItemHyperSerializer(HyperlinkedModelSerializer):
+
+    size = serializers.HyperlinkedRelatedField(
+        view_name = 'sizeintro',
+        lookup_field = 'id',
+        many = False,
+        read_only = True
+    )
+
+    class Meta:
+        model = Item
+        fields = ('id', 'name', 'size')
 
 
 

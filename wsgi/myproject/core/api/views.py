@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from core.api.serializers import ItemSerializer, UserSerializer, SizeSerializer #ItemHyperSerializer
+from core.api.serializers import ItemSerializer, UserSerializer, SizeSerializer, ItemHyperSerializer
 from django.contrib.auth.models import User
 from core.models import Item, Size
 from django.http import Http404
@@ -27,15 +27,15 @@ class SizeList(APIView):
 sizes_all = SizeList.as_view()
 
 
-# class ItemList(APIView):
-#     serializer_class = ItemHyperSerializer
-#
-#     def get(self, request, id=None):
-#         items = Item.objects.all()
-#         response = self.serializer_class(items, many=True, context={'request': request})
-#         return Response(response.data)
-#
-# items = ItemList.as_view()
+class ItemList(APIView):
+    serializer_class = ItemHyperSerializer
+
+    def get(self, request, id=None):
+        items = Item.objects.all()
+        response = self.serializer_class(items, many=True, context={'request': request})
+        return Response(response.data)
+
+items = ItemList.as_view()
 
 
 
