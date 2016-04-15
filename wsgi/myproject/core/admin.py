@@ -11,5 +11,5 @@ class TodoAdmin(admin.ModelAdmin):
         obj.propietario = request.user
         obj.save()
 
-admin.site.register(Todo, TodoAdmin)
+admin.site.register(Todo)
 admin.site.register(Currencies)

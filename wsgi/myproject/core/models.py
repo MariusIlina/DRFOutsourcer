@@ -10,7 +10,7 @@ class Todo(models.Model):
     hecho = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return u'{0} - {1}'.format(self.propietario, self.todo)
+        return self.fecha_creado
 
 class Currencies(models.Model):
     currency_name = models.CharField(max_length=200, null=True)
