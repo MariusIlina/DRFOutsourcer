@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Item
+from .models import Item, Size
 
 
 # # Register your models here.
@@ -12,5 +12,6 @@ from .models import Item
 #         obj.save()
 
 admin.site.register(Item)
+admin.site.register(Size)
 #admin.site.register(Todo)
 #admin.site.register(Currencies)
