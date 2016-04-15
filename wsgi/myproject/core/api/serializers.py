@@ -14,6 +14,14 @@ class ItemSerializer(ModelSerializer):
         fields = ('id', 'name', 'size')
 
 
+class ItemNestedSerializer(ModelSerializer):
+    size = SizeSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Item
+        fields = ('id', 'name', 'size')
+
+
 class ItemHyperSerializer(HyperlinkedModelSerializer):
 
     size = HyperlinkedRelatedField(
