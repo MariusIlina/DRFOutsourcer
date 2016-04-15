@@ -27,15 +27,15 @@ class SizeList(APIView):
 sizes_all = SizeList.as_view()
 
 
-class ItemList(APIView):
-    serializer_class = ItemHyperSerializer
-
-    def get(self, request, id=None):
-        items = Item.objects.all()
-        response = self.serializer_class(items, many=True, context={'request': request})
-        return Response(response.data)
-
-items = ItemList.as_view()
+# class ItemList(APIView):
+#     serializer_class = ItemHyperSerializer
+#
+#     def get(self, request, id=None):
+#         items = Item.objects.all()
+#         response = self.serializer_class(items, many=True, context={'request': request})
+#         return Response(response.data)
+#
+# items = ItemList.as_view()
 
 
 
