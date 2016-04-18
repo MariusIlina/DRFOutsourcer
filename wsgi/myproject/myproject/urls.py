@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^', include('core.api.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^token-auth/$', 'rest_framework.authtoken.views.obtain_auth_token'),
 ]
