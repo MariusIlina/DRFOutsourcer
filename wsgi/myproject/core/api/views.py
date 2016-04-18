@@ -56,10 +56,9 @@ class Usuario(APIView):
 usuarios = Usuario.as_view()
 
 class ItemViewSet(viewsets.ModelViewSet):
-    serializer_class = ItemNestedSerializer
+    serializer_class = ItemSerializer
     queryset = Item.objects.all()
     lookup_field = id
-    size = SizeSerializer
 
 # class CurrencyView(APIView):
 #
