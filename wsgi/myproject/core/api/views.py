@@ -59,6 +59,7 @@ class ItemViewSet(viewsets.ModelViewSet):
     serializer_class = ItemNestedSerializer
     queryset = Item.objects.all()
     lookup_field = id
+    size = SizeSerializer
 
 # class CurrencyView(APIView):
 #
