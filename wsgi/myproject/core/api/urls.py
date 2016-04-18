@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from core.api.views import ItemViewSet, SizeViewSet
 
 router = DefaultRouter()
-router.register(r'items', ItemViewSet).register(r'sizes', SizeViewSet)
+router.register(r'sizes', SizeViewSet)
 
 urlpatterns = patterns('core.api.views',
     # url(r'^hola_mundo_rest/(?P<nombre>\w+)$', 'hola_mundo'),
