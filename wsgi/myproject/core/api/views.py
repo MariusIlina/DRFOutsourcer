@@ -60,7 +60,7 @@ class SizeViewSet(viewsets.ModelViewSet):
     queryset = Size.objects.all()
 
 class ItemViewSet(viewsets.ModelViewSet):
-    serializer_class = ItemNestedSerializer
+    serializer_class = ItemSerializer
     queryset = Item.objects.all()
 
 # class CurrencyView(APIView):
