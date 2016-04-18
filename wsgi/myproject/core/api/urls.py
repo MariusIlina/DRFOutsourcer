@@ -1,9 +1,9 @@
 from django.conf.urls import patterns, include, url
 from rest_framework.routers import DefaultRouter
-from core.api.views import ItemViewSet
+from core.api.views import SizeViewSet
 
 router = DefaultRouter()
-router.register(r'items', ItemViewSet)
+router.register(r'items', SizeViewSet)
 urlpatterns = router.urls
 # urlpatterns = patterns('core.api.views',
 #     # url(r'^hola_mundo_rest/(?P<nombre>\w+)$', 'hola_mundo'),
