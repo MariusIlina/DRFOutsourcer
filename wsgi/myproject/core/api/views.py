@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework.response import Response
-from rest_framework.views import APIView
+from rest_framework.views import APIView, viewsets
 from core.api.serializers import ItemSerializer, UserSerializer, SizeSerializer, ItemHyperSerializer, ItemNestedSerializer
 from django.contrib.auth.models import User
 from core.models import Item, Size
@@ -53,6 +53,11 @@ class Usuario(APIView):
         return Response(response.data)
 
 usuarios = Usuario.as_view()
+
+class ItemViewSet(viewsets.ModelViewSet):
+    serializer_class = ItemNestedSerializer
+    queryset = Item.objects.all()
+    lookup_field = id
 
 # class CurrencyView(APIView):
 #
