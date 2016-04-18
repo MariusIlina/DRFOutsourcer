@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
-from rest_framework.serializers import ModelSerializer, HyperlinkedModelSerializer, HyperlinkedRelatedField
+from rest_framework.serializers import ModelSerializer, HyperlinkedModelSerializer
+from rest_framework.serializers import HyperlinkedRelatedField, ValidationError
 from core.models import Item, Size
 
 class SizeSerializer(ModelSerializer):
@@ -12,6 +13,10 @@ class ItemSerializer(ModelSerializer):
     class Meta:
         model = Item
         fields = ('id', 'name', 'size')
+
+    def validate(self, data):
+        if(len(data['name']) < 3):
+            raise ValidationError("Name must be at least 3 chars long")
 
 
 class ItemNestedSerializer(ModelSerializer):
