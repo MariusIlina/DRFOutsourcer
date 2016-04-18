@@ -57,7 +57,7 @@ usuarios = Usuario.as_view()
 
 class SizeViewSet(viewsets.ModelViewSet):
     serializer_class = SizeSerializer
-    queryset = Size.objects.all
+    queryset = Size.objects.all()
     lookup_field = id
 
 class ItemViewSet(viewsets.ModelViewSet):
