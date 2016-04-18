@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework.response import Response
-from rest_framework.views import APIView, viewsets
+from rest_framework.views import APIView
+from rest_framework import viewsets
 from core.api.serializers import ItemSerializer, UserSerializer, SizeSerializer, ItemHyperSerializer, ItemNestedSerializer
 from django.contrib.auth.models import User
 from core.models import Item, Size
