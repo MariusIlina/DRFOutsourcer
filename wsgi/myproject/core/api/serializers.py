@@ -16,9 +16,9 @@ class CompanySerializer(ModelSerializer):
                   'slug_name', 'email', 'phone', 'external_link', 'user')
         read_only_fields = ('user',)
 
-        def validate(self, data):
-            if validate_email(data['email']) is False:
-                raise ValidationError("This field must contain a valid email")
+    def validate(self, data):
+        if validate_email(data['email']) is False:
+            raise ValidationError("This field must contain a valid email")
 
 class SizeSerializer(ModelSerializer):
     class Meta:
