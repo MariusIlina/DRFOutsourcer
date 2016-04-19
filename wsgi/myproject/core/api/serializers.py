@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework.serializers import ModelSerializer, HyperlinkedModelSerializer
 from rest_framework.serializers import HyperlinkedRelatedField, ValidationError
 from core.models import Item, Size, Company, Country
+from django.core.validators import validate_email
 
 class CountrySerializer(ModelSerializer):
     class Meta:
@@ -14,6 +15,10 @@ class CompanySerializer(ModelSerializer):
         fields = ('id', 'company_name', 'employees_no', 'description', 'country', 'county', 'city',
                   'slug_name', 'email', 'phone', 'external_link', 'user')
         read_only_fields = ('user',)
+
+        def validate(self, data):
+            if validate_email(data['email']) is False:
+                raise ValidationError("This field must contain a valid email")
 
 class SizeSerializer(ModelSerializer):
     class Meta:
