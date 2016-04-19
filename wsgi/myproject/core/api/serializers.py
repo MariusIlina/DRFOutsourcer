@@ -17,7 +17,12 @@ class CompanySerializer(ModelSerializer):
         read_only_fields = ('user',)
 
     def validate(self, data):
-        validate_email(data['email'])
+        try:
+            validate_email(data['email'])
+            return True
+        except Exception, e:
+            return str(e)
+
 
 class SizeSerializer(ModelSerializer):
     class Meta:
