@@ -18,13 +18,8 @@ class CompanySerializer(ModelSerializer):
 
     @staticmethod
     def validate(self, data):
-        try:
-            validate_email(data['email'])
-            return True
-        except ValidationError:
-            return ValidationError("This field must contain a valid email")
         if len(data['email']) < 3:
-            raise ValidationError("Name must be at least 3 chars long")
+            raise ValidationError("Email must be at least 3 chars long")
 
 class SizeSerializer(ModelSerializer):
     class Meta:
