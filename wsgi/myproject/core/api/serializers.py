@@ -16,7 +16,6 @@ class CompanySerializer(ModelSerializer):
                   'slug_name', 'email', 'phone', 'external_link', 'user')
         read_only_fields = ('user',)
 
-    @staticmethod
     def validate(self, data):
         if len(data['email']) < 3:
             raise ValidationError("Email must be at least 3 chars long")
