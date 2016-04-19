@@ -65,7 +65,7 @@ class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
 
     def create(self, request, *args, **kwargs):
-        request.data['user_id'] = request.user.id
+        request.data['user'] = request.user.id
         return super(self.__class__, self).create(request, *args, **kwargs)
 
 class SizeViewSet(viewsets.ModelViewSet):
