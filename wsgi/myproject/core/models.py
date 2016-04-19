@@ -77,7 +77,7 @@ class Project(models.Model):
     approximate_duration = models.CharField(max_length=200, null=True, blank=True)
     approximate_duration_time_unit = models.ForeignKey(TimeUnit, null=True, blank=True)
     description = models.TextField()
-    work_description = models.TextField()
+    work_description = models.TextField(default='')
     slug_name = models.CharField(max_length=200, null=True)
     required_techs = models.TextField(null=True)
     approximate_hours_per_week = models.IntegerField(default=0)
