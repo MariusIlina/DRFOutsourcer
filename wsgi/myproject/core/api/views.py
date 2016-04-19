@@ -64,6 +64,10 @@ class CompanyViewSet(viewsets.ModelViewSet):
     serializer_class = CompanySerializer
     queryset = Company.objects.all()
 
+    def create(self, request, *args, **kwargs):
+        request.data['user_id'] = request.user.id
+        return super(self.__class__, self).create(request, *args, **kwargs)
+
 class SizeViewSet(viewsets.ModelViewSet):
     serializer_class = SizeSerializer
     queryset = Size.objects.all()
