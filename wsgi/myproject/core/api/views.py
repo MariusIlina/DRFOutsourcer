@@ -56,7 +56,7 @@ class Usuario(APIView):
 
 usuarios = Usuario.as_view()
 
-class CountryViewset(viewsets.ModelViewSet):
+class CountryViewSet(viewsets.ModelViewSet):
     serializer_class = CountrySerializer
     queryset = Country.objects.all()
 
