@@ -3,20 +3,21 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-"""
-Types of payments that a company can require. Eg. Hourly, Monthly etc.
-"""
+
 class PaymentTypes(models.Model):
+    """
+    Types of payments that a company can require. Eg. Hourly, Monthly etc.
+    """
     type_name = models.CharField(max_length=200)
 
     def __unicode__(self):
         return self.type_name
 
 
-"""
-Types of available currencies
-"""
 class Currency(models.Model):
+    """
+    Types of available currencies
+    """
     currency_name = models.CharField(max_length=200)
     currency_short_name = models.CharField(max_length=200)
 
@@ -24,20 +25,20 @@ class Currency(models.Model):
         return self.currency_short_name
 
 
-"""
-Units of measure for projects duration. Eg. Weeks, Months, Years
-"""
 class TimeUnit(models.Model):
+    """
+    Units of measure for projects duration. Eg. Weeks, Months, Years
+    """
     unit_name = models.CharField(max_length=200)
 
     def __unicode__(self):
         return self.unit_name
 
 
-"""
-A set of available countries for company location
-"""
 class Country(models.Model):
+    """
+    A set of available countries for company location
+    """
     country_name = models.CharField(max_length=200)
     country_code = models.CharField(max_length=200)
 
@@ -45,10 +46,10 @@ class Country(models.Model):
         return self.country_name
 
 
-"""
-Defines the structure of a Company entity in Outsourcer
-"""
 class Company(models.Model):
+    """
+    Defines the structure of a Company entity in Outsourcer
+    """
     company_name = models.CharField(max_length=200)
     registration_number = models.CharField(max_length=200, null=True, blank=True)
     employees_no = models.PositiveSmallIntegerField(default=0)
@@ -66,31 +67,33 @@ class Company(models.Model):
         return self.company_name
 
 
-"""
-Defines the structure of a Project entity in Outsourcer
-"""
 class Project(models.Model):
+    """
+    Defines the structure of a Project entity in Outsourcer
+    """
     project_name = models.CharField(max_length=200)
     pub_date = models.DateTimeField(auto_now=True)
     by_company = models.ForeignKey(Company, null=True, blank=True)
     approximate_duration = models.CharField(max_length=200, null=True, blank=True)
     approximate_duration_time_unit = models.ForeignKey(TimeUnit, null=True, blank=True)
     description = models.TextField()
+    work_description = models.TextField()
     slug_name = models.CharField(max_length=200, null=True)
     required_techs = models.TextField(null=True)
     approximate_hours_per_week = models.IntegerField(default=0)
     payment_type = models.ForeignKey(PaymentTypes, null=True, blank=True)
     payment_amount = models.IntegerField(default=0)
     currency = models.ForeignKey(Currency, null=True)
+    min_ppl_required = models.IntegerField(null=True, default=0)
 
     def __unicode__(self):
         return self.project_name
 
 
-"""
-Bids are the mean by which a company makes an fee offer to take a project
-"""
 class Bid(models.Model):
+    """
+    Bids are the mean by which a company makes an fee offer to take a project
+    """
     payment_type = models.ForeignKey(PaymentTypes, null=True, blank=True)
     payment_amount = models.IntegerField(default=0)
     currency = models.ForeignKey(Currency, null=True)
@@ -101,10 +104,10 @@ class Bid(models.Model):
         return self.by_company
 
 
-"""
-Recommendations can be mutually granted between companies
-"""
 class Recommendation(models.Model):
+    """
+    Recommendations can be mutually granted between companies
+    """
     by_company = models.ForeignKey(Company, null=True)
 
     def __unicode__(self):

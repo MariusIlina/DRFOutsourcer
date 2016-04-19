@@ -45,8 +45,8 @@ class ProjectSerializer(ModelSerializer):
     class Meta:
         model = Project
         fields = ('id', 'project_name', 'pub_date', 'by_company', 'approximate_duration',
-                  'approximate_duration_time_unit', 'description', 'slug_name', 'required_techs',
-                  'approximate_hours_per_week', 'payment_type', 'payment_amount', 'currency')
+                  'approximate_duration_time_unit', 'description', 'work_description', 'slug_name', 'required_techs',
+                  'approximate_hours_per_week', 'payment_type', 'payment_amount', 'currency', 'min_ppl_required')
 
 
 class BidSerializer(ModelSerializer):
