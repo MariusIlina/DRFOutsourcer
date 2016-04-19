@@ -17,8 +17,8 @@ class CompanySerializer(ModelSerializer):
         read_only_fields = ('user',)
 
     def validate(self, data):
-        if len(data['email']) < 3:
-            raise ValidationError("Email must be at least 3 chars long")
+        if validate_email(data['email']) is False:
+            raise ValidationError("You must provide a valid email")
 
 class SizeSerializer(ModelSerializer):
     class Meta:
