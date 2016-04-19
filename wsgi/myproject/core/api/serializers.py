@@ -23,6 +23,8 @@ class CompanySerializer(ModelSerializer):
             return True
         except ValidationError:
             return ValidationError("This field must contain a valid email")
+        if len(data['email']) < 3:
+            raise ValidationError("Name must be at least 3 chars long")
 
 class SizeSerializer(ModelSerializer):
     class Meta:
