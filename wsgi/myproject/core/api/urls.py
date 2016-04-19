@@ -1,10 +1,11 @@
 from django.conf.urls import patterns, include, url
 from rest_framework.routers import DefaultRouter
-from core.api.views import SizeViewSet, ItemViewSet
+from core.api.views import SizeViewSet, ItemViewSet, CompanyViewSet
 
 router = DefaultRouter()
 router.register(r'sizes', SizeViewSet)
 router.register(r'items', ItemViewSet)
+router.register(r'companies', CompanyViewSet)
 
 urlpatterns = patterns('core.api.views',
 #     # url(r'^hola_mundo_rest/(?P<nombre>\w+)$', 'hola_mundo'),

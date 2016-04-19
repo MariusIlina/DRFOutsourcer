@@ -1,7 +1,15 @@
 from django.contrib.auth.models import User
 from rest_framework.serializers import ModelSerializer, HyperlinkedModelSerializer
 from rest_framework.serializers import HyperlinkedRelatedField, ValidationError
-from core.models import Item, Size
+from core.models import Item, Size, Company
+
+
+class CompanySerializer(ModelSerializer):
+    class Meta:
+        model = Company
+        fields = ('id', 'company_name', 'employee_no', 'description', 'country', 'county', 'city',
+                  'slug_name', 'email', 'phone', 'external_link', 'user')
+        read_only_fields = ('user',)
 
 class SizeSerializer(ModelSerializer):
     class Meta:

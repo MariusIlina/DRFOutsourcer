@@ -2,9 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import viewsets
-from core.api.serializers import ItemSerializer, UserSerializer, SizeSerializer, ItemHyperSerializer, ItemNestedSerializer
+from core.api.serializers import ItemSerializer, UserSerializer, SizeSerializer, ItemHyperSerializer, ItemNestedSerializer, CompanySerializer
 from django.contrib.auth.models import User
-from core.models import Item, Size
+from core.models import Item, Size, Company
 from django.http import Http404
 from rest_framework import status
 
@@ -54,6 +54,10 @@ class Usuario(APIView):
         return Response(response.data)
 
 usuarios = Usuario.as_view()
+
+class CompanyViewSet(viewsets.ModelViewSet):
+    serializer_class = CompanySerializer
+    queryset = Company.objects.all()
 
 class SizeViewSet(viewsets.ModelViewSet):
     serializer_class = SizeSerializer
