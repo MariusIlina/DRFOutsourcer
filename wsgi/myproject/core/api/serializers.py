@@ -13,7 +13,6 @@ class CompanySerializer(ModelSerializer):
         model = Company
         fields = ('id', 'company_name', 'employees_no', 'description', 'country', 'county', 'city',
                   'slug_name', 'email', 'phone', 'external_link', 'user')
-        read_only_fields = ('user',)
 
 class SizeSerializer(ModelSerializer):
     class Meta:
