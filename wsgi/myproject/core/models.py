@@ -26,8 +26,6 @@ class Company(models.Model):
     company_name = models.CharField(max_length=200)
     employees_no = models.PositiveSmallIntegerField(default=0)
     description = models.TextField()
-    #country = models.ForeignKey(Country, null=True, blank=True)
-    registration_country = models.ForeignKey(Country, null=True, blank=True)
     county = models.CharField(max_length=200)
     city = models.CharField(max_length=200)
     slug_name = models.CharField(max_length=200, null=True)
