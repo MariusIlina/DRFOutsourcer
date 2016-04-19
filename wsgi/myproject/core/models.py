@@ -95,3 +95,17 @@ class Bid(models.Model):
     payment_amount = models.IntegerField(default=0)
     currency = models.ForeignKey(Currency, null=True)
     project = models.ForeignKey(Project, null=True)
+    by_company = models.ForeignKey(Company, null=True)
+
+    def __unicode__(self):
+        return self.by_company
+
+
+"""
+Recommendations can be mutually granted between companies
+"""
+class Recommendation(models.Model):
+    by_company = models.ForeignKey(Company, null=True)
+
+    def __unicode__(self):
+        return self.by_company

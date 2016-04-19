@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Company, Country, PaymentTypes, Currency, TimeUnit, Project, Bid
+from .models import Company, Country, PaymentTypes, Currency, TimeUnit, Project, Bid, Recommendation
 
 
 # Register your models here.
@@ -11,3 +11,4 @@ admin.site.register(Currency)
 admin.site.register(TimeUnit)
 admin.site.register(Project)
 admin.site.register(Bid)
+admin.site.register(Recommendation)

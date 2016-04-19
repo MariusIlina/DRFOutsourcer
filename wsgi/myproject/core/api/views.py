@@ -8,8 +8,8 @@ from rest_framework import viewsets
 from core.api.serializers import PaymentTypesSerializer, CurrencySerializer
 from core.api.serializers import TimeUnitSerializer, CountrySerializer
 from core.api.serializers import CompanySerializer, ProjectSerializer
-from core.api.serializers import BidSerializer
-from core.models import Company, Country, PaymentTypes, Currency, TimeUnit, Project, Bid
+from core.api.serializers import BidSerializer, RecommendationSerializer
+from core.models import Company, Country, PaymentTypes, Currency, TimeUnit, Project, Bid, Recommendation
 
 
 # Create your views here.
@@ -33,6 +33,7 @@ class CountryViewSet(viewsets.ModelViewSet):
     serializer_class = CountrySerializer
     queryset = Country.objects.all()
 
+
 class CompanyViewSet(viewsets.ModelViewSet):
     serializer_class = CompanySerializer
     queryset = Company.objects.all()
@@ -49,3 +50,9 @@ class ProjectViewSet(viewsets.ModelViewSet):
 class BidViewSet(viewsets.ModelViewSet):
     serializer_class = BidSerializer
     queryset = Bid.objects.all()
+
+
+class RecommendationViewSet(viewsets.ModelViewSet):
+    serializer_class = RecommendationSerializer
+    queryset = Recommendation.objects.all()
+
