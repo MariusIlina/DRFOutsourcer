@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+"""
+Types of payments that a company can require. Eg. Hourly, Monthly etc.
+"""
 class PaymentTypes(models.Model):
     type_name = models.CharField(max_length=200)
 
@@ -10,6 +13,9 @@ class PaymentTypes(models.Model):
         return self.type_name
 
 
+"""
+Types of available currencies
+"""
 class Currency(models.Model):
     currency_name = models.CharField(max_length=200)
     currency_short_name = models.CharField(max_length=200)
@@ -18,6 +24,19 @@ class Currency(models.Model):
         return self.currency_short_name
 
 
+"""
+Units of measure for projects duration. Eg. Weeks, Months, Years
+"""
+class TimeUnit(models.Model):
+    unit_name = models.CharField(max_length=200)
+
+    def __unicode__(self):
+        return self.unit_name
+
+
+"""
+A set of available countries for company location
+"""
 class Country(models.Model):
     country_name = models.CharField(max_length=200)
     country_code = models.CharField(max_length=200)
@@ -26,13 +45,9 @@ class Country(models.Model):
         return self.country_name
 
 
-class TimeUnit(models.Model):
-    unit_name = models.CharField(max_length=200)
-
-    def __unicode__(self):
-        return self.unit_name
-
-
+"""
+Defines the structure of a Company entity in Outsourcer
+"""
 class Company(models.Model):
     company_name = models.CharField(max_length=200)
     employees_no = models.PositiveSmallIntegerField(default=0)
@@ -50,9 +65,12 @@ class Company(models.Model):
         return self.company_name
 
 
+"""
+Defines the structure of a Project entity in Outsourcer
+"""
 class Project(models.Model):
     project_name = models.CharField(max_length=200)
-    pub_date = models.DateTimeField()
+    pub_date = models.DateTimeField(auto_now=True)
     by_company = models.ForeignKey(Company, null=True, blank=True)
     approximate_duration = models.CharField(max_length=200, null=True, blank=True)
     approximate_duration_time_unit = models.ForeignKey(TimeUnit, null=True, blank=True)

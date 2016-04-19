@@ -5,11 +5,28 @@ from django.contrib.auth.models import User
 from django.http import Http404
 from rest_framework import status
 from rest_framework import viewsets
-from core.api.serializers import CompanySerializer, CountrySerializer
-from core.models import Company, Country
+from core.api.serializers import PaymentTypesSerializer, CurrencySerializer
+from core.api.serializers import TimeUnitSerializer, CountrySerializer
+from core.api.serializers import CompanySerializer, ProjectSerializer
+from core.models import Company, Country, PaymentTypes, Currency, TimeUnit, Project
 
 
 # Create your views here.
+
+class PaymentTypesViewSet(viewsets.ModelViewSet):
+    serializer_class = PaymentTypesSerializer
+    queryset = PaymentTypes.objects.all()
+
+
+class CurrencyViewSet(viewsets.ModelViewSet):
+    serializer_class = CurrencySerializer
+    queryset = Currency.objects.all()
+
+
+class TimeUnitViewSet(viewsets.ModelViewSet):
+    serializer_class = TimeUnitSerializer
+    queryset = TimeUnit.objects.all()
+
 
 class CountryViewSet(viewsets.ModelViewSet):
     serializer_class = CountrySerializer
@@ -21,3 +38,8 @@ class CompanyViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+
+class ProjectViewSet(viewsets.ModelViewSet):
+    serializer_class = ProjectSerializer
+    queryset = Project.objects.all()
