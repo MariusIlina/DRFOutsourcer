@@ -7,7 +7,7 @@ from core.models import Item, Size, Company
 class CompanySerializer(ModelSerializer):
     class Meta:
         model = Company
-        fields = ('id', 'company_name', 'employee_no', 'description', 'country', 'county', 'city',
+        fields = ('id', 'company_name', 'employees_no', 'description', 'country', 'county', 'city',
                   'slug_name', 'email', 'phone', 'external_link', 'user')
         read_only_fields = ('user',)
 
