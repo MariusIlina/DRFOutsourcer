@@ -1,17 +1,8 @@
 from django.contrib import admin
-from .models import Item, Size
+from .models import Company, Country
 
 
-# # Register your models here.
-# class TodoAdmin(admin.ModelAdmin):
-#     list_display = ('propietario', 'todo', 'hecho')
-#     exclude = ('propietario',)
-#
-#     def save_model(self, request, obj, form, change):
-#         obj.propietario = request.user
-#         obj.save()
+# Register your models here.
 
-admin.site.register(Item)
-admin.site.register(Size)
-#admin.site.register(Todo)
-#admin.site.register(Currencies)
+admin.site.register(Country)
+admin.site.register(Company)

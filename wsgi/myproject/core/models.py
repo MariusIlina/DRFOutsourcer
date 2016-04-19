@@ -41,18 +41,3 @@ class Company(models.Model):
 
     def __unicode__(self):
         return self.company_name
-
-
-class Size(models.Model):
-    name = models.CharField(max_length=200, null=True, default='')
-    short_name = models.CharField(max_length=200, null=True, default='')
-
-    def __unicode__(self):
-        return self.name
-
-class Item(models.Model):
-    name = models.CharField(max_length=200, null=True, default='')
-    size = models.ForeignKey(Size)
-
-    def __unicode__(self):
-        return self.name
