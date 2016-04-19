@@ -1,8 +1,12 @@
 from django.contrib.auth.models import User
 from rest_framework.serializers import ModelSerializer, HyperlinkedModelSerializer
 from rest_framework.serializers import HyperlinkedRelatedField, ValidationError
-from core.models import Item, Size, Company
+from core.models import Item, Size, Company, Country
 
+class CountrySerializer(ModelSerializer):
+    class Meta:
+        model = Country
+        fields = ('country_name', 'country_code')
 
 class CompanySerializer(ModelSerializer):
     class Meta:
