@@ -17,12 +17,16 @@ class Currency(models.Model):
     def __unicode__(self):
         return self.currency_short_name
 
+class Country(models.Model):
+    country_name = models.CharField(max_length=200)
+    country_code = models.CharField(max_length=200)
+
 
 class Company(models.Model):
     company_name = models.CharField(max_length=200)
     employees_no = models.PositiveSmallIntegerField(default=0)
     description = models.TextField()
-    country = models.CharField(max_length=200)
+    country = models.ForeignKey(Country, null=True, blank=True)
     county = models.CharField(max_length=200)
     city = models.CharField(max_length=200)
     slug_name = models.CharField(max_length=200, null=True)
@@ -34,7 +38,7 @@ class Company(models.Model):
     def __unicode__(self):
         return self.company_name
 
-    
+
 class Size(models.Model):
     name = models.CharField(max_length=200, null=True, default='')
     short_name = models.CharField(max_length=200, null=True, default='')
