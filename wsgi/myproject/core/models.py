@@ -50,6 +50,7 @@ Defines the structure of a Company entity in Outsourcer
 """
 class Company(models.Model):
     company_name = models.CharField(max_length=200)
+    registration_number = models.CharField(max_length=200, null=True, blank=True)
     employees_no = models.PositiveSmallIntegerField(default=0)
     description = models.TextField()
     country = models.ForeignKey(Country, null=True, blank=True)
@@ -84,3 +85,13 @@ class Project(models.Model):
 
     def __unicode__(self):
         return self.project_name
+
+
+"""
+Bids are the mean by which a company makes an fee offer to take a project
+"""
+class Bid(models.Model):
+    payment_type = models.ForeignKey(PaymentTypes, null=True, blank=True)
+    payment_amount = models.IntegerField(default=0)
+    currency = models.ForeignKey(Currency, null=True)
+    project = models.ForeignKey(Project, null=True)

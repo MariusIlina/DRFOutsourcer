@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework.serializers import ModelSerializer #HyperlinkedModelSerializer
 from rest_framework.serializers import ValidationError #HyperlinkedRelatedField
-from core.models import Company, Country, PaymentTypes, Currency, TimeUnit, Project
+from core.models import Company, Country, PaymentTypes, Currency, TimeUnit, Project, Bid
 from django.core.validators import validate_email
 
 
@@ -47,3 +47,9 @@ class ProjectSerializer(ModelSerializer):
         fields = ('id', 'project_name', 'pub_date', 'by_company', 'approximate_duration',
                   'approximate_duration_time_unit', 'description', 'slug_name', 'required_techs',
                   'approximate_hours_per_week', 'payment_type', 'payment_amount', 'currency')
+
+
+class BidSerializer(ModelSerializer):
+    class Meta:
+        model = Bid
+        fields = ('id', 'payment_type', 'payment_amount', 'currency', 'project')
