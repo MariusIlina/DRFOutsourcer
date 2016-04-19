@@ -19,6 +19,7 @@ class CompanySerializer(ModelSerializer):
     def validate(self, data):
         if validate_email(data['email']) is False:
             raise ValidationError()
+        return data
 
 class SizeSerializer(ModelSerializer):
     class Meta:
