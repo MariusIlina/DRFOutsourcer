@@ -23,7 +23,7 @@ class Country(models.Model):
     country_code = models.CharField(max_length=200)
 
     def __unicode__(self):
-        return self.country_name
+        return self.country_name 
 
 
 class Company(models.Model):
