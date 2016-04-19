@@ -19,7 +19,9 @@ setup(
     install_requires=[
         #'Django==1.8.4',
         #'djangorestframework',
-        #'django-cors-headers'
+        #'django-cors-headers',
+        'django-haystack',
+        'drf-haystack'
     ],
     dependency_links=[
         'https://pypi.python.org/simple/django/'
