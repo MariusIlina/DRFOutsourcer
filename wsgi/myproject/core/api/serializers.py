@@ -16,9 +16,13 @@ class CompanySerializer(ModelSerializer):
                   'slug_name', 'email', 'phone', 'external_link', 'user')
         read_only_fields = ('user',)
 
+    @staticmethod
     def validate(self, data):
-        if(validate_email(data['email'])) is False:
-            raise ValidationError("This field must contain a valid email")
+        try:
+            validate_email(data['email'])
+            return True
+        except ValidationError:
+            return ValidationError("This field must contain a valid email")
 
 class SizeSerializer(ModelSerializer):
     class Meta:
@@ -32,7 +36,7 @@ class ItemSerializer(ModelSerializer):
         fields = ('id', 'name', 'size')
 
     def validate(self, data):
-        if(len(data['name']) < 3):
+        if len(data['name']) < 3:
             raise ValidationError("Name must be at least 3 chars long")
 
 
