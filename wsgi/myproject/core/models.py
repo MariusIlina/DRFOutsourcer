@@ -17,9 +17,13 @@ class Currency(models.Model):
     def __unicode__(self):
         return self.currency_short_name
 
+
 class Country(models.Model):
     country_name = models.CharField(max_length=200)
     country_code = models.CharField(max_length=200)
+
+    def __unicode__(self):
+        return self.country_name
 
 
 class Company(models.Model):
