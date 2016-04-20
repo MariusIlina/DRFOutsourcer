@@ -39,13 +39,11 @@ class IsProjectOwner(BasePermission):
         Returns true if the authenticated user is the user who created the
         company that is posting a new project
         """
-        if request.method == 'POST':
+        if request.method == 'POST' and request.data['by_company'] is not None:
             companies = Company.objects.filter(user=request.user, id=request.data['by_company'])
             if len(companies) > 0:
                 return True
             return False
-        else:
-            return True
 
 
 class BidderIsCompanyOwner(BasePermission):
