@@ -53,6 +53,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
         companies = Company.objects.filter(user=request.user, id=request.data['by_company'])
         if len(companies) is 0:
             return Response(status=403)
+        return Response(request.data)
 
 
 class BidViewSet(viewsets.ModelViewSet):
