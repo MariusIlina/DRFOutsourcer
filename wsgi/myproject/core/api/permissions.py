@@ -1,5 +1,6 @@
 from rest_framework.permissions import BasePermission
 from django.contrib.auth.models import User
+from core.models import Company, Project
 
 SAFE_METHODS = ['GET', 'HEAD', 'OPTIONS', 'POST']
 OWNER_METHODS = ['PUT', 'PATCH', 'DELETE']
@@ -26,4 +27,7 @@ class IsProjectOwner(BasePermission):
         if request.method in SAFE_METHODS:
             return True
         elif request.method in OWNER_METHODS:
+            project = Project.objects.get(id=request.id)
+            if request.user == project.by_company.user:
+                return True
             return False
