@@ -37,9 +37,8 @@ class IsProjectOwner(BasePermission):
         # Allow users to post new projects only on behalf of their own companies
         elif request.method == 'POST':
             companies = Company.objects.filter(user=request.user, id=request.data['by_company'])
-            #raise Exception({"message": len(companies)})
             if len(companies) > 0:
-                return True
+                raise Exception({"message": len(companies)})
             return False
 
 
