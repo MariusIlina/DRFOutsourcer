@@ -34,7 +34,7 @@ class IsProjectOwner(BasePermission):
                 return True
             return False
         elif request.method == 'POST':
-            company = Company.objects.get(id=obj.by_company)
+            company = Company.objects.get(id=obj.by_company.id)
             if company.user == request.user:
                 return True
             return False
