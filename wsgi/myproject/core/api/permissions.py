@@ -6,6 +6,7 @@ SAFE_METHODS = ['GET', 'HEAD', 'OPTIONS', 'POST']
 OWNER_METHODS = ['PUT', 'PATCH', 'DELETE']
 
 class IsCompanyOwner(BasePermission):
+
     def has_object_permission(self, request, view, obj):
         """
         Returns true if the user is the owner of the entity or is staff
@@ -19,6 +20,7 @@ class IsCompanyOwner(BasePermission):
 
 
 class IsProjectOwner(BasePermission):
+
     def has_object_permission(self, request, view, obj):
         """
         Returns true if the authenticated user is the user who created the
@@ -32,8 +34,16 @@ class IsProjectOwner(BasePermission):
                 return True
             return False
 
+    def has_permission(self, request, view):
+        if request.method == 'POST':
+            companies = Company.objects.filter(user=request.user, id=request.data['by_company'])
+            if len(companies) > 0:
+                return True
+            return False
+
 
 class BidderIsCompanyOwner(BasePermission):
+
     def has_object_permission(self, request, view, obj):
         """
         Returns true if the user who wants to bid on a project is the owner
