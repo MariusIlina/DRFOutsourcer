@@ -11,6 +11,6 @@ class IsCompanyOwner(BasePermission):
         if request.method in SAFE_METHODS:
             return True
         elif request.method == 'PUT' or request.method == 'PATCH':
-            if obj.user == request.user or obj.user.is_staff():
+            if obj.user == request.user or obj.user.is_staff:
                 return True
             return False
