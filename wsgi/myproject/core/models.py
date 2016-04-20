@@ -108,8 +108,8 @@ class Recommendation(models.Model):
     """
     Recommendations can be mutually granted between companies
     """
-    by_company = models.ForeignKey(Company, null=True)
-    for_company = models.ForeignKey(Company, null=True)
+    by_company = models.ForeignKey(Company, null=True, related_name='by_company')
+    for_company = models.ForeignKey(Company, null=True, related_name='for_company')
 
     def __unicode__(self):
         return self.by_company
