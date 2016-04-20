@@ -44,6 +44,7 @@ class IsProjectOwner(BasePermission):
             if len(companies) > 0:
                 return True
             return False
+        return True
 
 
 class BidderIsCompanyOwner(BasePermission):
