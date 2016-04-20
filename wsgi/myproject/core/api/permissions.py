@@ -25,4 +25,5 @@ class IsProjectOwner(BasePermission):
         """
         if request.method in SAFE_METHODS:
             return True
-        elif request
+        elif request.method in OWNER_METHODS:
+            return False
