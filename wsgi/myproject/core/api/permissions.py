@@ -38,6 +38,7 @@ class IsProjectOwner(BasePermission):
         elif request.method == 'POST':
             user_companies = Company.objects.filter(user=request.user)
             publisher_company = Company.objects.filter(id=obj.by_company.id)
+            print obj.by_company.id
             if len(set(publisher_company).intersection(user_companies)) is not 0:
                 return True
             return False
