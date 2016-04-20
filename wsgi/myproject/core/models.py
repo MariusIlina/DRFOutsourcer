@@ -85,6 +85,7 @@ class Project(models.Model):
     payment_amount = models.IntegerField(default=0)
     currency = models.ForeignKey(Currency, null=True)
     min_ppl_required = models.IntegerField(null=True, default=0)
+    category = models.ForeignKey(Category, null=True, default=0)
 
     def __unicode__(self):
         return self.project_name
@@ -113,3 +114,13 @@ class Recommendation(models.Model):
 
     def __unicode__(self):
         return self.by_company
+
+
+class Category(models.Model):
+    """
+    Categories are the mean by which we differentiate projects by their economical areas.
+    """
+    category_name = models.CharField(max_length=200, null=True, blank=True)
+
+    def __unicode__(self):
+        return self.category_name

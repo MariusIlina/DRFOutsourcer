@@ -35,6 +35,10 @@ class IsProjectOwner(BasePermission):
             return False
 
     def has_permission(self, request, view):
+        """
+        Returns true if the authenticated user is the user who created the
+        company that is posting a new project
+        """
         if request.method == 'POST':
             companies = Company.objects.filter(user=request.user, id=request.data['by_company'])
             if len(companies) > 0:

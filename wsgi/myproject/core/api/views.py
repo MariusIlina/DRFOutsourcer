@@ -58,4 +58,3 @@ class BidViewSet(viewsets.ModelViewSet):
 class RecommendationViewSet(viewsets.ModelViewSet):
     serializer_class = RecommendationSerializer
     queryset = Recommendation.objects.all()
-
