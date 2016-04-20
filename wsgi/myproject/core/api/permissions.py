@@ -2,7 +2,7 @@ from rest_framework.permissions import BasePermission
 from django.contrib.auth.models import User
 from core.models import Company, Project
 
-SAFE_METHODS = ['GET', 'HEAD', 'OPTIONS']
+SAFE_METHODS = ['GET', 'HEAD', 'OPTIONS', 'POST']
 OWNER_METHODS = ['PUT', 'PATCH', 'DELETE']
 
 class IsCompanyOwner(BasePermission):
@@ -10,7 +10,7 @@ class IsCompanyOwner(BasePermission):
         """
         Returns true if the user is the owner of the entity or is staff
         """
-        if request.method in SAFE_METHODS or request.method == 'POST':
+        if request.method in SAFE_METHODS:
             return True
         elif request.method in OWNER_METHODS:
             if obj.user == request.user or obj.user.is_staff:
@@ -21,11 +21,8 @@ class IsCompanyOwner(BasePermission):
 class IsProjectOwner(BasePermission):
     def has_object_permission(self, request, view, obj):
         """
-        Returns true:
-         - on PUT/PATCH if the authenticated user is the user who created the
+        Returns true if the authenticated user is the user who created the
         company that posted the project
-         - on POST if the authenticated user is the user who created the company
-         that is trying to create the project
         """
         if request.method in SAFE_METHODS:
             return True
@@ -33,12 +30,6 @@ class IsProjectOwner(BasePermission):
         elif request.method in OWNER_METHODS:
             if obj.by_company.user == request.user:
                 return True
-            return False
-        # Allow users to post new projects only on behalf of their own companies
-        if request.method == 'POST':
-            companies = Company.objects.filter(user=request.user, id=request.data['by_company'])
-            if len(companies) > 0:
-                raise Exception({"message": len(companies)})
             return False
 
 
