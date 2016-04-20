@@ -9,6 +9,7 @@ from core.api.serializers import PaymentTypesSerializer, CurrencySerializer
 from core.api.serializers import TimeUnitSerializer, CountrySerializer
 from core.api.serializers import CompanySerializer, ProjectSerializer
 from core.api.serializers import BidSerializer, RecommendationSerializer
+from core.api.permissions import IsCompanyOwner
 from core.models import Company, Country, PaymentTypes, Currency, TimeUnit, Project, Bid, Recommendation
 
 
@@ -36,6 +37,7 @@ class CountryViewSet(viewsets.ModelViewSet):
 
 class CompanyViewSet(viewsets.ModelViewSet):
     serializer_class = CompanySerializer
+    permission_classes = (IsCompanyOwner,)
     queryset = Company.objects.all()
 
     def perform_create(self, serializer):
