@@ -46,7 +46,7 @@ class CompanyViewSet(viewsets.ModelViewSet):
 
 class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
-    permission_classes = IsProjectOwner
+    permission_classes = (IsProjectOwner,)
     queryset = Project.objects.all()
 
 

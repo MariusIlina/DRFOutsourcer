@@ -27,7 +27,6 @@ class IsProjectOwner(BasePermission):
         if request.method in SAFE_METHODS:
             return True
         elif request.method in OWNER_METHODS:
-            project = Project.objects.get(id=request.id)
-            if request.user == project.by_company.user:
+            if obj.by_company.user == request.user:
                 return True
             return False
