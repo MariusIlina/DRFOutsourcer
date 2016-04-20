@@ -51,9 +51,8 @@ class ProjectViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         companies = Company.objects.filter(user=request.user, id=request.data['by_company'])
-        if len(companies) > 0:
-            return True
-        return Response(status=403)
+        if len(companies) is 0:
+            return Response(status=403)
 
 
 class BidViewSet(viewsets.ModelViewSet):
