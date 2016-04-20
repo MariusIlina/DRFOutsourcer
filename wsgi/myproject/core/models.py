@@ -73,7 +73,7 @@ class Project(models.Model):
     """
     project_name = models.CharField(max_length=200)
     pub_date = models.DateTimeField(auto_now=True)
-    by_company = models.ForeignKey(Company, null=True, blank=True, related_name='by_company')
+    by_company = models.ForeignKey(Company, null=True, blank=True, related_name='published_by')
     approximate_duration = models.CharField(max_length=200, null=True, blank=True)
     approximate_duration_time_unit = models.ForeignKey(TimeUnit, null=True, blank=True)
     description = models.TextField()
