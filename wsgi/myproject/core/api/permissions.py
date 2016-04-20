@@ -36,7 +36,7 @@ class IsProjectOwner(BasePermission):
             return False
         # Allow users to post new projects only on behalf of their own companies
         elif request.method == 'POST':
-            companies = Company.objects.filter(user=request.user, id=request.data.by_company)
+            companies = Company.objects.filter(user=request.user, id=request.data['by_company'])
             if len(companies) is not 0:
                 return True
             return False
