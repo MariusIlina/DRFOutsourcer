@@ -49,12 +49,13 @@ class ProjectViewSet(viewsets.ModelViewSet):
     permission_classes = (IsProjectOwner,)
     queryset = Project.objects.all()
 
-    def create(self, request, *args, **kwargs):
-        companies = Company.objects.filter(user=request.user, id=request.data['by_company'])
+    def perform_create(self, serializer):
+        user = serializer.request.user
+        firm = serializer.request.data['by_company']
+        companies = Company.objects.filter(user=user, id=firm)
         if len(companies) is 0:
             return Response(status=403)
-        return Response(request.data)
-
+        serializer.save()
 
 class BidViewSet(viewsets.ModelViewSet):
     serializer_class = BidSerializer
