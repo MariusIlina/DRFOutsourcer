@@ -54,7 +54,7 @@ class Category(models.Model):
 
     def __unicode__(self):
         return self.category_name
-    
+
 
 class Company(models.Model):
     """
@@ -95,7 +95,7 @@ class Project(models.Model):
     payment_amount = models.IntegerField(default=0)
     currency = models.ForeignKey(Currency, null=True)
     min_ppl_required = models.IntegerField(null=True, default=0)
-    category = models.ForeignKey(Category, null=True, default=0)
+    category = models.ForeignKey(Category, null=True)
 
     def __unicode__(self):
         return self.project_name
