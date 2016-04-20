@@ -39,7 +39,8 @@ class IsProjectOwner(BasePermission):
             companies = Company.objects.filter(user=request.user, id=request.data['by_company'])
             if len(companies) > 0:
                 raise Exception({"message": len(companies)})
-            return False
+            else:
+                return False
 
 
 class BidderIsCompanyOwner(BasePermission):
