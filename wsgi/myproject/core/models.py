@@ -46,6 +46,16 @@ class Country(models.Model):
         return self.country_name
 
 
+class Category(models.Model):
+    """
+    Categories are the mean by which we differentiate projects by their economical areas.
+    """
+    category_name = models.CharField(max_length=200, null=True, blank=True)
+
+    def __unicode__(self):
+        return self.category_name
+    
+
 class Company(models.Model):
     """
     Defines the structure of a Company entity in Outsourcer
@@ -115,12 +125,3 @@ class Recommendation(models.Model):
     def __unicode__(self):
         return self.by_company
 
-
-class Category(models.Model):
-    """
-    Categories are the mean by which we differentiate projects by their economical areas.
-    """
-    category_name = models.CharField(max_length=200, null=True, blank=True)
-
-    def __unicode__(self):
-        return self.category_name
