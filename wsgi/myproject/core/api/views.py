@@ -54,16 +54,19 @@ class ProjectViewSet(viewsets.ModelViewSet):
 
 class BidViewSet(viewsets.ModelViewSet):
     serializer_class = BidSerializer
+    permission_classes = (IsEntityOwner,)
     queryset = Bid.objects.all()
 
 
 class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
+    permission_classes = (IsEntityOwner,)
     queryset = Comment.objects.all()
 
 
 class RecommendationViewSet(viewsets.ModelViewSet):
     serializer_class = RecommendationSerializer
+    permission_classes = (IsEntityOwner,)
     queryset = Recommendation.objects.all()
 
 
