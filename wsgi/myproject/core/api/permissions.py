@@ -5,7 +5,6 @@ from types import MethodType
 
 SAFE_METHODS = ['GET', 'HEAD', 'OPTIONS', 'POST']
 OWNER_METHODS = ['PUT', 'PATCH', 'DELETE']
-CAN_BE_RESTRICTED = ['POST', 'PUT', 'PATCH', 'DELETE']
 
 class PermissionToolSet:
     """
@@ -80,6 +79,16 @@ class EditorIsStaff(BasePermission):
         """
         Allow reading from anyone but deny posting, editing or deleting
         """
-        if request.method in CAN_BE_RESTRICTED:
+        if request.method in OWNER_METHODS:
+            if request.user.is_staff:
+                return True
             return False
         return True
+
+    def has_permission(self, request, view):
+        """
+        Allow creation only for staff
+        """
+        if request.user.is_staff:
+            return True
+        return False
