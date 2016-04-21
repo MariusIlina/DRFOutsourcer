@@ -5,6 +5,7 @@ from types import MethodType
 
 SAFE_METHODS = ['GET', 'HEAD', 'OPTIONS', 'POST']
 OWNER_METHODS = ['PUT', 'PATCH', 'DELETE']
+CAN_BE_RESTRICTED = ['POST', 'PUT', 'PATCH', 'DELETE']
 
 class PermissionToolSet:
     """
@@ -69,3 +70,16 @@ class IsEntityOwner(BasePermission):
         company that is creating this new entity
         """
         return PermissionToolSet.user_owns_creator_company(request.method, 'by_company', request.data, request.user)
+
+
+class EditorIsStaff(BasePermission):
+    """
+    Certain API methods restrict some http_methods
+    """
+    def has_object_permission(self, request, view, obj):
+        """
+        Allow reading from anyone but deny posting, editing or deleting
+        """
+        if request.method in CAN_BE_RESTRICTED:
+            return False
+        return True

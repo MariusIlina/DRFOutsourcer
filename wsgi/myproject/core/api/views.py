@@ -10,7 +10,7 @@ from core.api.serializers import TimeUnitSerializer, CountrySerializer
 from core.api.serializers import CompanySerializer, ProjectSerializer
 from core.api.serializers import BidSerializer, RecommendationSerializer
 from core.api.serializers import CategorySerializer, CommentSerializer
-from core.api.permissions import IsCompanyOwner, IsEntityOwner
+from core.api.permissions import IsCompanyOwner, IsEntityOwner, EditorIsStaff
 from core.models import Company, Country, PaymentTypes, Currency, TimeUnit
 from core.models import Project, Bid, Recommendation, Category, Comment
 
@@ -19,21 +19,25 @@ from core.models import Project, Bid, Recommendation, Category, Comment
 
 class PaymentTypesViewSet(viewsets.ModelViewSet):
     serializer_class = PaymentTypesSerializer
+    permission_classes = (EditorIsStaff,)
     queryset = PaymentTypes.objects.all()
 
 
 class CurrencyViewSet(viewsets.ModelViewSet):
     serializer_class = CurrencySerializer
+    permission_classes = (EditorIsStaff,)
     queryset = Currency.objects.all()
 
 
 class TimeUnitViewSet(viewsets.ModelViewSet):
     serializer_class = TimeUnitSerializer
+    permission_classes = (EditorIsStaff,)
     queryset = TimeUnit.objects.all()
 
 
 class CountryViewSet(viewsets.ModelViewSet):
     serializer_class = CountrySerializer
+    permission_classes = (EditorIsStaff,)
     queryset = Country.objects.all()
 
 
@@ -72,4 +76,5 @@ class RecommendationViewSet(viewsets.ModelViewSet):
 
 class CategoryViewSet(viewsets.ModelViewSet):
     serializer_class = CategorySerializer
+    permission_classes = (EditorIsStaff,)
     queryset = Category.objects.all()
