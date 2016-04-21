@@ -10,7 +10,7 @@ from core.api.serializers import TimeUnitSerializer, CountrySerializer
 from core.api.serializers import CompanySerializer, ProjectSerializer
 from core.api.serializers import BidSerializer, RecommendationSerializer
 from core.api.serializers import CategorySerializer, CommentSerializer
-from core.api.permissions import IsCompanyOwner, IsProjectOwner
+from core.api.permissions import IsCompanyOwner, IsEntityOwner
 from core.models import Company, Country, PaymentTypes, Currency, TimeUnit
 from core.models import Project, Bid, Recommendation, Category, Comment
 
@@ -48,7 +48,7 @@ class CompanyViewSet(viewsets.ModelViewSet):
 
 class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
-    permission_classes = (IsProjectOwner,)
+    permission_classes = (IsEntityOwner,)
     queryset = Project.objects.all()
 
 

@@ -45,7 +45,8 @@ class IsCompanyOwner(BasePermission):
 
 class IsEntityOwner(BasePermission):
     """
-    Manages permissions for the Project, Comment and Bid models
+    Manages permissions for Entities
+    Entities are models that are related to the Company model
     """
     def has_object_permission(self, request, view, obj):
         """
