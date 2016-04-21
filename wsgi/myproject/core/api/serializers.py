@@ -66,7 +66,7 @@ class CommentSerializer(ModelSerializer):
 class RecommendationSerializer(ModelSerializer):
     class Meta:
         model = Recommendation
-        fields = ('id', 'by_company')
+        fields = ('id', 'by_company', 'for_company')
 
 
 class CategorySerializer(ModelSerializer):
