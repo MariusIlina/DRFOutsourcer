@@ -108,8 +108,20 @@ class Bid(models.Model):
     payment_type = models.ForeignKey(PaymentTypes, null=True, blank=True)
     payment_amount = models.IntegerField(default=0)
     currency = models.ForeignKey(Currency, null=True)
-    project = models.ForeignKey(Project, null=True)
-    by_company = models.ForeignKey(Company, null=True)
+    project = models.ForeignKey(Project, null=True, related_name='bid_on')
+    by_company = models.ForeignKey(Company, null=True, related_name='bid_by')
+
+    def __unicode__(self):
+        return self.by_company
+
+
+class Comment(models.Model):
+    """
+    Companies can post comments to other companies' projects
+    """
+    on_project = models.ForeignKey(Project, null=True, related_name='comment_on')
+    comment = models.TextField(null=True)
+    by_company = models.ForeignKey(Company, null=True, related_name='comment_by')
 
     def __unicode__(self):
         return self.by_company
