@@ -6,29 +6,37 @@ from types import MethodType
 SAFE_METHODS = ['GET', 'HEAD', 'OPTIONS', 'POST']
 OWNER_METHODS = ['PUT', 'PATCH', 'DELETE']
 
-def check_http_and_ownership(http_method, current_user, object_user):
+class PermissionToolSet:
     """
-    Checks if the http method is in SAFE_METHODS and if the user is object owner
+    Provides a set of tools for static operations on permissions
     """
-    if http_method in SAFE_METHODS:
+    def __init__(self):
+        return self
+
+    @staticmethod
+    def check_http_and_ownership(self, http_method, current_user, object_user):
+        """
+        Checks if the http method is in SAFE_METHODS and if the user is object owner
+        """
+        if http_method in SAFE_METHODS:
+            return True
+        elif http_method in OWNER_METHODS:
+            if current_user == object_user:
+                return True
+            return False
+
+    @staticmethod
+    def user_owns_creator_company(self, http_method, http_keyword, http_object, current_user):
+        """
+        Checks if the user who is trying to bid, comment or post a project is actually
+        owner of the company on which behalf he's trying to do such actions
+        """
+        if http_method == 'POST' and http_keyword in http_object:
+            companies = Company.objects.filter(user=current_user, id=http_object[http_keyword])
+            if len(companies) > 0:
+                return True
+            return False
         return True
-    elif http_method in OWNER_METHODS:
-        if current_user == object_user:
-            return True
-        return False
-
-
-def user_owns_creator_company(http_method, http_keyword, http_object, current_user):
-    """
-    Checks if the user who is trying to bid, comment or post a project is actually
-    owner of the company on which behalf he's trying to do such actions
-    """
-    if http_method == 'POST' and http_keyword in http_object:
-        companies = Company.objects.filter(user=current_user, id=http_object[http_keyword])
-        if len(companies) > 0:
-            return True
-        return False
-    return True
 
 
 class IsCompanyOwner(BasePermission):
@@ -40,7 +48,7 @@ class IsCompanyOwner(BasePermission):
         Returns true if the user is the owner of the company which
         is being modified/deleted
         """
-        return check_http_and_ownership(request.method, request.user, obj.user)
+        return PermissionToolSet.check_http_and_ownership(request.method, request.user, obj.user)
 
 
 class IsEntityOwner(BasePermission):
@@ -53,11 +61,11 @@ class IsEntityOwner(BasePermission):
         Returns true if the authenticated user is the user who created the
         company that created the entity which is being modified/deleted
         """
-        return check_http_and_ownership(request.method, request.user, obj.by_company.user)
+        return PermissionToolSet.check_http_and_ownership(request.method, request.user, obj.by_company.user)
 
     def has_permission(self, request, view):
         """
         Returns true if the authenticated user is the user who created the
         company that is creating this new entity
         """
-        return user_owns_creator_company(request.method, 'by_company', request.data, request.user)
+        return PermissionToolSet.user_owns_creator_company(request.method, 'by_company', request.data, request.user)
