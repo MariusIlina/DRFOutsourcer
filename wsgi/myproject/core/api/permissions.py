@@ -14,7 +14,7 @@ class PermissionToolSet:
         return self
 
     @staticmethod
-    def check_http_and_ownership(self, http_method, current_user, object_user):
+    def check_http_and_ownership(http_method, current_user, object_user):
         """
         Checks if the http method is in SAFE_METHODS and if the user is object owner
         """
@@ -26,7 +26,7 @@ class PermissionToolSet:
             return False
 
     @staticmethod
-    def user_owns_creator_company(self, http_method, http_keyword, http_object, current_user):
+    def user_owns_creator_company(http_method, http_keyword, http_object, current_user):
         """
         Checks if the user who is trying to bid, comment or post a project is actually
         owner of the company on which behalf he's trying to do such actions
