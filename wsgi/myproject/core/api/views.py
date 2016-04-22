@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from django.http import Http404
 from rest_framework import status
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 from core.api.serializers import PaymentTypesSerializer, CurrencySerializer
 from core.api.serializers import TimeUnitSerializer, CountrySerializer
 from core.api.serializers import CompanySerializer, ProjectSerializer
@@ -54,6 +54,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
     permission_classes = (IsEntityOwner,)
     queryset = Project.objects.all()
+    filter_backends = (filters.DjangoFilterBackend,)
 
 
 class BidViewSet(viewsets.ModelViewSet):

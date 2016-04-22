@@ -42,6 +42,15 @@ class CompanySerializer(ModelSerializer):
         return data
 
 
+class ProjectSerializer(ModelSerializer):
+    class Meta:
+        model = Project
+        fields = ('id', 'project_name', 'pub_date', 'by_company', 'approximate_duration',
+                  'approximate_duration_time_unit', 'description', 'work_description',
+                  'slug_name', 'required_techs', 'approximate_hours_per_week', 'payment_type',
+                  'payment_amount', 'currency', 'min_ppl_required', 'category')
+
+
 class BidSerializer(ModelSerializer):
     class Meta:
         model = Bid
@@ -64,17 +73,3 @@ class CategorySerializer(ModelSerializer):
     class Meta:
         model = Category
         fields = ('id', 'category_name')
-
-
-class ProjectSerializer(ModelSerializer):
-    comments = CommentSerializer(read_only=True)
-    recommendations = RecommendationSerializer(read_only=True)
-    bids = BidSerializer(read_only=True)
-
-    class Meta:
-        model = Project
-        fields = ('id', 'project_name', 'pub_date', 'by_company', 'approximate_duration',
-                  'approximate_duration_time_unit', 'description', 'work_description',
-                  'slug_name', 'required_techs', 'approximate_hours_per_week', 'payment_type',
-                  'payment_amount', 'currency', 'min_ppl_required', 'category', 'comments',
-                  'recommendations', 'bids')
