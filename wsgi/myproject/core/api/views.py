@@ -5,15 +5,15 @@ from django.contrib.auth.models import User
 from django.http import Http404
 from rest_framework import status
 from rest_framework import viewsets, filters
-import django_filters
-from core.api.serializers import PaymentTypesSerializer, CurrencySerializer
-from core.api.serializers import TimeUnitSerializer, CountrySerializer
-from core.api.serializers import CompanySerializer, ProjectSerializer
-from core.api.serializers import BidSerializer, RecommendationSerializer
-from core.api.serializers import CategorySerializer, CommentSerializer
-from core.api.permissions import IsCompanyOwner, IsEntityOwner, EditorIsStaff
+from serializers import PaymentTypesSerializer, CurrencySerializer
+from serializers import TimeUnitSerializer, CountrySerializer
+from serializers import CompanySerializer, ProjectSerializer
+from serializers import BidSerializer, RecommendationSerializer
+from serializers import CategorySerializer, CommentSerializer
+from permissions import IsCompanyOwner, IsEntityOwner, EditorIsStaff
 from core.models import Company, Country, PaymentTypes, Currency, TimeUnit
 from core.models import Project, Bid, Recommendation, Category, Comment
+from filters import ProjectFilter
 
 
 # Create your views here.
@@ -49,15 +49,6 @@ class CompanyViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
-
-
-class ProjectFilter(filters.FilterSet):
-    min_amount = django_filters.NumberFilter(name="payment_amount", lookup_type='gte')
-    max_amount = django_filters.NumberFilter(name="payment_amount", lookup_type='lte')
-
-    class Meta:
-        model = Project
-        fields = ['category', 'by_company', 'currency', 'payment_type', 'min_amount', 'max_amount']
 
 
 class ProjectViewSet(viewsets.ModelViewSet):
