@@ -149,3 +149,22 @@ REST_FRAMEWORK = {
         'rest_framework.filters.DjangoFilterBackend',
     )
 }
+
+import redis
+import redis_cache
+
+if ON_OPENSHIFT:
+    REDIS_CONNECTION_POOL = redis.ConnectionPool(
+        host=os.environ['OPENSHIFT_REDIS_HOST'],
+        port=os.environ['OPENSHIFT_REDIS_PORT'],
+        db=0,
+        password=os.environ['REDIS_PASSWORD']
+    )
+    REDIS_INIT = redis.Redis(connection_pool=REDIS_CONNECTION_POOL)
+
+    CACHES = {
+        'default': {
+            'BACKEND': 'redis_cache.RedisCache',
+            'LOCATION': os.environ['OPENSHIFT_REDIS_HOST'] + ':' + os.environ['OPENSHIFT_REDIS_PORT'],
+        },
+    }

@@ -23,7 +23,7 @@ setup(
         #'django-haystack',
         #'drf-haystack',
         #'django-filter',
-        'django-redis-cache'
+        #'django-redis-cache'
     ],
     dependency_links=[
         'https://pypi.python.org/simple/django/'
