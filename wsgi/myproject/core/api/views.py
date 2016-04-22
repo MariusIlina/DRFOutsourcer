@@ -15,7 +15,7 @@ from core.models import Company, Country, PaymentTypes, Currency, TimeUnit
 from core.models import Project, Bid, Recommendation, Category, Comment
 from filters import ProjectFilter
 from drf_cached_instances.mixins import CachedViewMixin
-from caches import ProjectCache
+from drf_cached_instances.cache import BaseCache
 
 
 # Create your views here.
@@ -59,7 +59,7 @@ class ProjectViewSet(CachedViewMixin, viewsets.ModelViewSet):
     queryset = Project.objects.all()
     filter_backends = (filters.DjangoFilterBackend,)
     filter_class = ProjectFilter
-    cache_class = ProjectCache
+    cache_class = BaseCache
 
 
 class BidViewSet(viewsets.ModelViewSet):
