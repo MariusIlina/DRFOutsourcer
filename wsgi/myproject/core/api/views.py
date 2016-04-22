@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.http import Http404
 from rest_framework import status
 from rest_framework import viewsets, filters
+import django_filters
 from core.api.serializers import PaymentTypesSerializer, CurrencySerializer
 from core.api.serializers import TimeUnitSerializer, CountrySerializer
 from core.api.serializers import CompanySerializer, ProjectSerializer
@@ -50,12 +51,21 @@ class CompanyViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 
+class ProjectFilter(filters.FilterSet):
+    min_amount = django_filters.NumberFilter(name="payment_amount", lookup_type='gte')
+    max_amount = django_filters.NumberFilter(name="payment_amount", lookup_type='lte')
+
+    class Meta:
+        model = Project
+        fields = ['category', 'by_company', 'currency', 'payment_type', 'min_amount', 'max_amount']
+
+
 class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
     permission_classes = (IsEntityOwner,)
     queryset = Project.objects.all()
     filter_backends = (filters.DjangoFilterBackend,)
-    filter_fields = ('category', 'by_company')
+    filter_class = ProjectFilter
 
 
 class BidViewSet(viewsets.ModelViewSet):
