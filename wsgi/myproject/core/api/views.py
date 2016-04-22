@@ -55,6 +55,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
     permission_classes = (IsEntityOwner,)
     queryset = Project.objects.all()
     filter_backends = (filters.DjangoFilterBackend,)
+    filter_fields = ('category', 'by_company')
 
 
 class BidViewSet(viewsets.ModelViewSet):
