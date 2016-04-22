@@ -22,7 +22,8 @@ setup(
         #'django-cors-headers',
         #'django-haystack',
         #'drf-haystack',
-        #'django-filter'
+        #'django-filter',
+        'django-redis-cache'
     ],
     dependency_links=[
         'https://pypi.python.org/simple/django/'
