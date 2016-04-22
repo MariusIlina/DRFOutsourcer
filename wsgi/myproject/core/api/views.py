@@ -53,13 +53,13 @@ class CompanyViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 
-class ProjectViewSet(CachedViewMixin, viewsets.ModelViewSet):
+class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
     permission_classes = (IsEntityOwner,)
     queryset = Project.objects.all()
     filter_backends = (filters.DjangoFilterBackend,)
     filter_class = ProjectFilter
-    cache_class = ProjectCache
+    #cache_class = ProjectCache
 
 
 class BidViewSet(viewsets.ModelViewSet):
