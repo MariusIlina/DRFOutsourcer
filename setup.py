@@ -21,7 +21,8 @@ setup(
         #'djangorestframework',
         #'django-cors-headers',
         #'django-haystack',
-        #'drf-haystack'
+        #'drf-haystack',
+        'django-filter'
     ],
     dependency_links=[
         'https://pypi.python.org/simple/django/'
