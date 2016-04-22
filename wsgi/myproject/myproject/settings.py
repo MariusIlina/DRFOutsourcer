@@ -165,6 +165,15 @@ if ON_OPENSHIFT:
     CACHES = {
         'default': {
             'BACKEND': 'redis_cache.RedisCache',
-            'LOCATION': os.environ['OPENSHIFT_REDIS_HOST'] + ':' + os.environ['OPENSHIFT_REDIS_PORT'],
+            'LOCATION': [
+                os.environ['OPENSHIFT_REDIS_HOST']+ ':' + os.environ['OPENSHIFT_REDIS_PORT'],
+            ],
+            'OPTIONS': {
+                'DB': 0,
+                'PASSWORD': 'ZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5',
+                'PARSER_CLASS': 'redis.connection.HiredisParser',
+                'CONNECTION_POOL_CLASS': 'redis.BlockingConnectionPool',
+                'MAX_CONNECTIONS': 1000,
+            },
         },
     }
