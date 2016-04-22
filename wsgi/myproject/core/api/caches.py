@@ -38,3 +38,11 @@ class ProjectCache(BaseCache):
         else:
             self.project_default_add_related_pks(obj)
             return obj
+
+    def project_default_add_related_pks(self, obj):
+        """Add related primary keys to a User instance."""
+        return []
+
+    def project_default_invalidator(self, obj):
+        """Invalidate cached items when the User changes."""
+        return []
