@@ -24,7 +24,8 @@ setup(
         #'drf-haystack',
         #'django-filter',
         #'django-redis-cache',
-        #'drf-cached-instances'
+        #'drf-cached-instances',
+        'hiredis==0.1.5'
     ],
     dependency_links=[
         'https://pypi.python.org/simple/django/'
