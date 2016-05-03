@@ -14,7 +14,7 @@ class ProjectCache(BaseCache):
             ('id', obj.id),
             ('project_name', obj.project_name),
             self.field_to_json('DateTime', 'pub_date', obj.pub_date),
-            ('by_company', obj.by_company),
+            #('by_company', obj.by_company),
             ('approximate_duration', obj.approximate_duration),
             #self.field_to_json(
                 #'approximate_duration_time_unit', 'approximate_duration_time_unit', model=TimeUnit, pk=obj.id),
@@ -25,9 +25,9 @@ class ProjectCache(BaseCache):
             ('approximate_hours_per_week', obj.approximate_hours_per_week),
             #('payment_type', obj.payment_type),
             ('payment_amount', obj.payment_amount),
-            ('currency', obj.currency),
+            #('currency', obj.currency),
             ('min_ppl_required', obj.min_ppl_required),
-            ('category', obj.category)
+            #('category', obj.category)
         ))
 
     def project_default_loader(self, pk):
