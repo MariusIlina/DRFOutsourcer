@@ -23,7 +23,7 @@ class ProjectCache(BaseCache):
             ('slug_name', obj.slug_name),
             ('required_techs', obj.required_techs),
             ('approximate_hours_per_week', obj.approximate_hours_per_week),
-            ('payment_type', obj.payment_type),
+            #('payment_type', obj.payment_type),
             ('payment_amount', obj.payment_amount),
             ('currency', obj.currency),
             ('min_ppl_required', obj.min_ppl_required),
