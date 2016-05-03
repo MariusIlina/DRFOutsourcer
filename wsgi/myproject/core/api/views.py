@@ -59,7 +59,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     filter_backends = (filters.DjangoFilterBackend,)
     filter_class = ProjectFilter
-    #cache_class = ProjectCache
+    cache_class = ProjectCache
 
 
 class BidViewSet(viewsets.ModelViewSet):
