@@ -53,7 +53,7 @@ class CompanyViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 
-class ProjectViewSet(viewsets.ModelViewSet):
+class ProjectViewSet(CachedViewMixin, viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
     permission_classes = (IsEntityOwner,)
     queryset = Project.objects.all()
