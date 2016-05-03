@@ -166,8 +166,9 @@ if ON_OPENSHIFT:
         'default': {
             'BACKEND': 'redis_cache.RedisCache',
             'LOCATION': [
-                os.environ['OPENSHIFT_REDIS_HOST']+ ':' + os.environ['OPENSHIFT_REDIS_PORT'],
+                os.environ['OPENSHIFT_REDIS_HOST'] + ':' + os.environ['OPENSHIFT_REDIS_PORT'],
             ],
+            'TIMEOUT': None,
             'OPTIONS': {
                 'DB': 0,
                 'PASSWORD': 'ZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5',
