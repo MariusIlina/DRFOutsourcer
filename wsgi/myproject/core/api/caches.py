@@ -15,7 +15,7 @@ class ProjectCache(BaseCache):
             ('id', obj.id),
             ('project_name', obj.project_name),
             self.field_to_json('DateTime', 'pub_date', obj.pub_date),
-            self.field_to_json('by_company', 'by_company', model=Company, pks=obj._company_pks),
+            ('by_company', obj.by_company.id),
             ('approximate_duration', obj.approximate_duration),
             #self.field_to_json(
                 #'approximate_duration_time_unit', 'approximate_duration_time_unit', model=TimeUnit, pk=obj.id),
@@ -43,8 +43,9 @@ class ProjectCache(BaseCache):
 
     def project_default_add_related_pks(self, obj):
         """Add related primary keys to a Project instance."""
-        if not hasattr(obj, '_company_pks'):
-            obj._company_pks = list(obj.by_company.values_list('id', flat=True))
+        #if not hasattr(obj, '_company_pks'):
+            #obj._company_pks = list(obj.by_company.values_list('id', flat=True))
+        return []
 
     def project_default_invalidator(self, obj):
         """Invalidate cached items when the User changes."""
