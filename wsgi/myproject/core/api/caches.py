@@ -1,5 +1,5 @@
 from drf_cached_instances.cache import BaseCache
-from core.models import Project, TimeUnit
+from core.models import Project, TimeUnit, Company
 from django.core import serializers
 
 class ProjectCache(BaseCache):
@@ -15,7 +15,7 @@ class ProjectCache(BaseCache):
             ('id', obj.id),
             ('project_name', obj.project_name),
             self.field_to_json('DateTime', 'pub_date', obj.pub_date),
-            ('by_company', serializers.serialize('json', [obj.by_company])),
+            self.field_to_json('by_company', 'by_company', model=Company, pk=obj.id),
             ('approximate_duration', obj.approximate_duration),
             #self.field_to_json(
                 #'approximate_duration_time_unit', 'approximate_duration_time_unit', model=TimeUnit, pk=obj.id),
