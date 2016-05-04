@@ -45,7 +45,8 @@ class ProjectCache(BaseCache):
             return obj
 
     def project_default_add_related_pks(self, obj):
-        return []
+        if not hasattr(obj, '_by_company_pks'):
+            obj._by_company_pks = obj.by_company.values_list('id', flat=True)
 
     def project_default_invalidator(self, obj):
         """Invalidate cached items when the Project changes."""
