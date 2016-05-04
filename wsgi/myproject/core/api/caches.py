@@ -32,7 +32,7 @@ class ProjectCache(BaseCache):
             ('payment_amount', obj.payment_amount),
             self.field_to_json('PK', 'currency', model=Currency, pk=obj.currency.id),
             ('min_ppl_required', obj.min_ppl_required),
-            self.field_to_json('PK', 'category', model=Category, pks=obj.category.id)
+            self.field_to_json('PK', 'category', model=Category, pk=obj.category.id)
         ))
 
     def project_default_loader(self, pk):
