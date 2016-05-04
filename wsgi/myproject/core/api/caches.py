@@ -18,7 +18,7 @@ class ProjectCache(BaseCache):
         return dict((
             ('id', obj.id),
             ('project_name', obj.project_name),
-            ('pub_date', obj.pub_date),
+            self.field_to_json('DateTime', 'pub_date', obj.pub_date),
             ('by_company', obj.by_company.id),
             ('approximate_duration', obj.approximate_duration),
             ('approximate_duration_time_unit', obj.approximate_duration_time_unit.id),
