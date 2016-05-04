@@ -1,5 +1,5 @@
 from drf_cached_instances.cache import BaseCache
-from core.models import Project, TimeUnit, Company, Currency, Category, PaymentType
+from core.models import Project, TimeUnit, Company, Currency, Category, PaymentTypes
 from django.core import serializers
 
 class ProjectCache(BaseCache):
@@ -28,7 +28,7 @@ class ProjectCache(BaseCache):
             ('slug_name', obj.slug_name),
             ('required_techs', obj.required_techs),
             ('approximate_hours_per_week', obj.approximate_hours_per_week),
-            self.field_to_json('payment_type', 'payment_type', model=PaymentType, pks=obj._payment_type_pks),
+            self.field_to_json('payment_type', 'payment_type', model=PaymentTypes, pks=obj._payment_type_pks),
             ('payment_amount', obj.payment_amount),
             self.field_to_json('currency', 'currency', model=Currency, pks=obj._currency_pks),
             ('min_ppl_required', obj.min_ppl_required),
