@@ -42,7 +42,7 @@ class ProjectCache(BaseCache):
             return None
         else:
             #self.project_default_add_related_pks(obj)
-            return obj
+            pass
 
     def project_default_add_related_pks(self, obj):
         """Add related primary keys to a Project instance."""
