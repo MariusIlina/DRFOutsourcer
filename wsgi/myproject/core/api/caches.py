@@ -15,10 +15,10 @@ class ProjectCache(BaseCache):
             ('id', obj.id),
             ('project_name', obj.project_name),
             self.field_to_json('DateTime', 'pub_date', obj.pub_date),
-            self.field_to_json('ByCompany', 'by_company', model=Company, pk=obj.by_company.id),
+            self.field_to_json('PK', 'by_company', model=Company, pk=obj.by_company.id),
             ('approximate_duration', obj.approximate_duration),
             self.field_to_json(
-                'Duration',
+                'PK',
                 'approximate_duration_time_unit',
                 model=TimeUnit,
                 pk=obj.approximate_duration_time_unit.id
@@ -28,11 +28,11 @@ class ProjectCache(BaseCache):
             ('slug_name', obj.slug_name),
             ('required_techs', obj.required_techs),
             ('approximate_hours_per_week', obj.approximate_hours_per_week),
-            self.field_to_json('PaymentType', 'payment_type', model=PaymentTypes, pk=obj.payment_type.id),
+            self.field_to_json('PK', 'payment_type', model=PaymentTypes, pk=obj.payment_type.id),
             ('payment_amount', obj.payment_amount),
-            self.field_to_json('Currency', 'currency', model=Currency, pk=obj.currency.id),
+            self.field_to_json('PK', 'currency', model=Currency, pk=obj.currency.id),
             ('min_ppl_required', obj.min_ppl_required),
-            self.field_to_json('Category', 'category', model=Category, pks=obj.category.id)
+            self.field_to_json('PK', 'category', model=Category, pks=obj.category.id)
         ))
 
     def project_default_loader(self, pk):
