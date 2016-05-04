@@ -11,6 +11,10 @@ class ProjectCache(BaseCache):
         if not obj:
             return None
         #self.project_default_add_related_pks(obj)
+        try:
+            cat = obj.category.id
+        except Exception:
+            cat = ''
         return dict((
             ('id', obj.id),
             ('project_name', obj.project_name),
@@ -27,7 +31,7 @@ class ProjectCache(BaseCache):
             ('payment_amount', obj.payment_amount),
             ('currency', obj.currency.id),
             ('min_ppl_required', obj.min_ppl_required),
-            ('category', obj.category.id)
+            ('category', cat)
         ))
 
     def project_default_loader(self, pk):
