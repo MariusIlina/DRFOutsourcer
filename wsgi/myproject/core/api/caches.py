@@ -14,11 +14,11 @@ class ProjectCache(BaseCache):
         try:
             cat = obj.category.id
         except Exception:
-            cat = ''
+            cat = False
         return dict((
             ('id', obj.id),
             ('project_name', obj.project_name),
-            self.field_to_json('DateTime', 'pub_date', obj.pub_date),
+            ('pub_date', obj.pub_date),
             ('by_company', obj.by_company.id),
             ('approximate_duration', obj.approximate_duration),
             ('approximate_duration_time_unit', obj.approximate_duration_time_unit.id),
@@ -42,7 +42,7 @@ class ProjectCache(BaseCache):
             return None
         else:
             #self.project_default_add_related_pks(obj)
-            return obj
+            return self
 
     def project_default_add_related_pks(self, obj):
         """Add related primary keys to a Project instance."""
