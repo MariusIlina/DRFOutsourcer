@@ -14,7 +14,7 @@ class ProjectCache(BaseCache):
             ('id', obj.id),
             ('project_name', obj.project_name),
             self.field_to_json('DateTime', 'pub_date', obj.pub_date),
-            self.field_to_json('PK', 'by_company', model=Company, pk=obj.by_company.id),
+            self.field_to_json('PK', 'by_company', model=Company, pk=obj.by_company.id, user=obj.by_company.user),
             ('approximate_duration', obj.approximate_duration),
             self.field_to_json(
                 'PK',
