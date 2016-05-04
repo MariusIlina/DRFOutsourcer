@@ -38,7 +38,7 @@ class ProjectCache(BaseCache):
     def project_default_loader(self, pk):
         """Load a Project from the database."""
         try:
-            obj = Project.objects.get(pk=pk) 
+            obj = Project.objects.get(pk=pk)
         except Project.DoesNotExist:
             return None
         else:
@@ -47,7 +47,7 @@ class ProjectCache(BaseCache):
 
     def project_default_add_related_pks(self, obj):
         if not hasattr(obj, '_company_pks'):
-            obj._company_pks = list(obj.by_company.values_list('id', flat=True))
+            obj._company_pks = obj.by_company.values_list('id', flat=True)
 
     def project_default_invalidator(self, obj):
         """Invalidate cached items when the Project changes."""
