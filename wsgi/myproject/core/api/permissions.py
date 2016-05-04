@@ -61,8 +61,11 @@ class IsEntityOwner(BasePermission):
         Returns true if the authenticated user is the user who created the
         company that created the entity which is being modified/deleted
         """
-        raise Exception(obj.user.pk)
-        return PermissionToolSet.check_http_and_ownership(request.method, request.user, obj.by_company.user)
+        try:
+            owner = obj.by_company.user
+        except Exception:
+            owner = User.objects.get(id=obj.user.pk)
+        return PermissionToolSet.check_http_and_ownership(request.method, request.user, owner)
 
     def has_permission(self, request, view):
         """
