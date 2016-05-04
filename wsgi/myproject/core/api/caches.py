@@ -42,8 +42,9 @@ class ProjectCache(BaseCache):
             return obj
 
     def project_default_add_related_pks(self, obj):
-        """Add related primary keys to a User instance."""
-        return []
+        """Add related primary keys to a Project instance."""
+        if not hasattr(obj, '_company_pks'):
+            obj._company_pks = list(obj.by_company.values_list('pk', flat=True))
 
     def project_default_invalidator(self, obj):
         """Invalidate cached items when the User changes."""
