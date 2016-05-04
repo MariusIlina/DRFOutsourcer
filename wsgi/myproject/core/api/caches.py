@@ -51,5 +51,5 @@ class ProjectCache(BaseCache):
         return []
 
     def project_default_invalidator(self, obj):
-        """Invalidate cached items when the User changes."""
+        """Invalidate cached items when the Project changes."""
         return []
