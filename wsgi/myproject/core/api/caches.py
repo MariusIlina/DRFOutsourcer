@@ -21,7 +21,7 @@ class ProjectCache(BaseCache):
             self.field_to_json('DateTime', 'pub_date', obj.pub_date),
             ('by_company', obj.by_company.id),
             ('approximate_duration', obj.approximate_duration),
-            ('approximate_duration_time_unit', obj.approximate_duration_time_unit.id),
+            ('approximate_duration_time_unit', obj.approximate_duration_time_unit),
             ('description', obj.description),
             ('work_description', obj.work_description),
             ('slug_name', obj.slug_name),
@@ -36,13 +36,7 @@ class ProjectCache(BaseCache):
 
     def project_default_loader(self, pk):
         """Load a Project from the database."""
-        try:
-            obj = Project.objects.get(pk=pk)
-        except Project.DoesNotExist:
-            return None
-        else:
-            #self.project_default_add_related_pks(obj)
-            return obj
+        obj = Project.objects.get(pk=pk)
 
     def project_default_add_related_pks(self, obj):
         """Add related primary keys to a Project instance."""
