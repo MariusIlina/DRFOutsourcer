@@ -1,5 +1,6 @@
 from drf_cached_instances.cache import BaseCache
 from core.models import Project, TimeUnit, Company, Currency, Category, PaymentTypes
+from django.contrib.auth.models import User
 
 class ProjectCache(BaseCache):
 
@@ -14,7 +15,8 @@ class ProjectCache(BaseCache):
             ('id', obj.id),
             ('project_name', obj.project_name),
             self.field_to_json('DateTime', 'pub_date', obj.pub_date),
-            self.field_to_json('PK', 'by_company', model=Company, pk=obj.by_company.id, user=obj.by_company.user),
+            self.field_to_json('PK', 'by_company', model=Company, pk=obj.by_company.id),
+            self.field_to_json('PK', 'user', model=User, pk=obj.by_company.user.id)
             ('approximate_duration', obj.approximate_duration),
             self.field_to_json(
                 'PK',
