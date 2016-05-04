@@ -10,25 +10,24 @@ class ProjectCache(BaseCache):
         """Convert a Project to a cached instance representation."""
         if not obj:
             return None
-        self.project_default_add_related_pks(obj)
+        #self.project_default_add_related_pks(obj)
         return dict((
             ('id', obj.id),
             ('project_name', obj.project_name),
             self.field_to_json('DateTime', 'pub_date', obj.pub_date),
             ('by_company', obj.by_company.id),
             ('approximate_duration', obj.approximate_duration),
-            #self.field_to_json(
-                #'approximate_duration_time_unit', 'approximate_duration_time_unit', model=TimeUnit, pk=obj.id),
+            ('approximate_duration_time_unit', obj.approximate_duration_time_unit.id),
             ('description', obj.description),
             ('work_description', obj.work_description),
             ('slug_name', obj.slug_name),
             ('required_techs', obj.required_techs),
             ('approximate_hours_per_week', obj.approximate_hours_per_week),
-            #('payment_type', obj.payment_type),
+            ('payment_type', obj.payment_type.id),
             ('payment_amount', obj.payment_amount),
-            #('currency', obj.currency),
+            ('currency', obj.currency.id),
             ('min_ppl_required', obj.min_ppl_required),
-            #('category', obj.category)
+            ('category', obj.category.id)
         ))
 
     def project_default_loader(self, pk):
