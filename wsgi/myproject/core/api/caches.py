@@ -41,7 +41,7 @@ class ProjectCache(BaseCache):
         except Project.DoesNotExist:
             return None
         else:
-            self.project_default_add_related_pks(obj)
+            #self.project_default_add_related_pks(obj)
             return obj
 
     def project_default_add_related_pks(self, obj):
