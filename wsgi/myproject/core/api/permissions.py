@@ -65,7 +65,9 @@ class IsEntityOwner(BasePermission):
             owner = obj.by_company.user.id
         except Exception:
             owner = obj.user.pk
-        return PermissionToolSet.check_http_and_ownership(request.method, request.user.id, owner)
+        if PermissionToolSet.user_owns_creator_company('POST', 'by_company', request.data, request.user) is True:
+            return PermissionToolSet.check_http_and_ownership(request.method, request.user.id, owner)
+        return False
 
     def has_permission(self, request, view):
         """
