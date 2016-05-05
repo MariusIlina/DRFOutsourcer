@@ -62,10 +62,10 @@ class IsEntityOwner(BasePermission):
         company that created the entity which is being modified/deleted
         """
         try:
-            owner = obj.by_company.user
+            owner = obj.by_company.user.id
         except Exception:
-            owner = User.objects.get(id=obj.user.pk)
-        return PermissionToolSet.check_http_and_ownership(request.method, request.user, owner)
+            owner = obj.user.pk
+        return PermissionToolSet.check_http_and_ownership(request.method, request.user.id, owner)
 
     def has_permission(self, request, view):
         """
