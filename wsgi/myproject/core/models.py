@@ -100,6 +100,7 @@ class Project(models.Model):
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         r = settings.REDIS_INIT
+        raise Exception(r.get(':1:drfc_default_Project_' + self.id))
         r.delete(':1:drfc_default_Project_' + self.id)
 
     def __unicode__(self):
