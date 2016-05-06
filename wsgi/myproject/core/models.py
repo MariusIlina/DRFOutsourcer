@@ -102,7 +102,8 @@ class Project(models.Model):
     def save(self, *args, **kwargs):
         try:
             r = settings.REDIS_INIT
-            r.delete(':1:drfc_default_Project_' + self.id)
+            rediskey = ':1:drfc_default_Project_' + self.id
+            r.delete(rediskey)
         except Exception:
             pass
         super(Project, self).save(*args, **kwargs)
