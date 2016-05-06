@@ -102,11 +102,18 @@ class Project(models.Model):
     def save(self, *args, **kwargs):
         try:
             r = settings.REDIS_INIT
-            rediskey = ':1:drfc_default_Project_' + str(self.id)
-            r.delete(rediskey)
+            r.delete(':1:drfc_default_Project_' + str(self.id))
         except Exception:
             pass
         super(Project, self).save(*args, **kwargs)
+
+    def delete(self):
+        try:
+            r = settings.REDIS_INIT
+            r.delete(':1:drfc_default_Project_' + str(self.id))
+        except Exception:
+            pass
+        super(Project, self).delete()
 
     def __unicode__(self):
         return self.project_name
