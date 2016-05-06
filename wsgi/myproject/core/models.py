@@ -101,7 +101,7 @@ class Project(models.Model):
 
     def save(self, *args, **kwargs):
         r = settings.REDIS_INIT
-        r.delete(':1:drfc_default_Project_21')
+        r.set('hahaid', self.id)
         super(Project, self).save(*args, **kwargs)
 
     def __unicode__(self):
