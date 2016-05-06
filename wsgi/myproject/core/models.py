@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 
 # Create your models here.
 
@@ -96,6 +97,10 @@ class Project(models.Model):
     currency = models.ForeignKey(Currency, null=True)
     min_ppl_required = models.IntegerField(null=True, default=0)
     category = models.ForeignKey(Category, null=True)
+
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        r = settings.REDIS_INIT
+        r.delete(':1:drfc_default_Project_' + self.id)
 
     def __unicode__(self):
         return self.project_name
