@@ -98,11 +98,6 @@ class Project(models.Model):
     min_ppl_required = models.IntegerField(null=True, default=0)
     category = models.ForeignKey(Category, null=True)
 
-    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        r = settings.REDIS_INIT
-        raise Exception(r.get(':1:drfc_default_Project_' + self.id))
-        r.delete(':1:drfc_default_Project_' + self.id)
-
     def __unicode__(self):
         return self.project_name
 
