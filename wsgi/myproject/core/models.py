@@ -9,6 +9,7 @@ def delete_redis_project(sender, instance, created, **kwargs):
     r = settings.REDIS_INIT
     raise Exception(r)
 
+
 class PaymentTypes(models.Model):
     """
     Types of payments that a company can require. Eg. Hourly, Monthly etc.
@@ -105,7 +106,7 @@ class Project(models.Model):
     def __unicode__(self):
         return self.project_name
 
-signals.post_save.connect(delete_redis_project, Project)
+signals.pre_save.connect(delete_redis_project, Project)
 
 
 class Bid(models.Model):
