@@ -100,6 +100,7 @@ class Project(models.Model):
     category = models.ForeignKey(Category, null=True)
 
     def save(self, *args, **kwargs):
+        raise Exception("bau")
         super(Project, self).save(*args, **kwargs)
 
     def __unicode__(self):
