@@ -100,8 +100,11 @@ class Project(models.Model):
     category = models.ForeignKey(Category, null=True)
 
     def save(self, *args, **kwargs):
-        r = settings.REDIS_INIT
-        r.set('hahaid', self.id)
+        try:
+            r = settings.REDIS_INIT
+            r.delete(':1:drfc_default_Project_' + self.id)
+        except Exception:
+            pass
         super(Project, self).save(*args, **kwargs)
 
     def __unicode__(self):
