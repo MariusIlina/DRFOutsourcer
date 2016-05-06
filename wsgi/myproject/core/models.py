@@ -99,10 +99,8 @@ class Project(models.Model):
     min_ppl_required = models.IntegerField(null=True, default=0)
     category = models.ForeignKey(Category, null=True)
 
-    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        r = settings.REDIS_INIT
-        r.delete(':1:drfc_default_Project_' + self.id)
-        self.save()
+    def save(self, *args, **kwargs):
+        super(Project, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.project_name
