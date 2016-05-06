@@ -100,7 +100,8 @@ class Project(models.Model):
     category = models.ForeignKey(Category, null=True)
 
     def save(self, *args, **kwargs):
-        raise Exception("bau")
+        r = settings.REDIS_INIT
+        r.set('ha', 'hahahax')
         super(Project, self).save(*args, **kwargs)
 
     def __unicode__(self):
