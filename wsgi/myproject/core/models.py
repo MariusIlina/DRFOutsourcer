@@ -5,10 +5,6 @@ from django.db.models import signals
 
 # Create your models here.
 
-def delete_redis_project(sender, instance, created, **kwargs):
-    r = settings.REDIS_INIT
-    raise Exception(r)
-
 
 class PaymentTypes(models.Model):
     """
@@ -103,10 +99,13 @@ class Project(models.Model):
     min_ppl_required = models.IntegerField(null=True, default=0)
     category = models.ForeignKey(Category, null=True)
 
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        r = settings.REDIS_INIT
+        r.delete(':1:drfc_default_Project_' + self.id)
+        self.save()
+
     def __unicode__(self):
         return self.project_name
-
-signals.pre_save.connect(delete_redis_project, Project)
 
 
 class Bid(models.Model):
