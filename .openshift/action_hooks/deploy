@@ -25,7 +25,7 @@ echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/OutSourcer/manage.py collectsta
 # GETTING-STARTED: change 'OutSourcer' to your project name:
 python "$OPENSHIFT_REPO_DIR"wsgi/OutSourcer/manage.py collectstatic --noinput
 
-
+ 
 
 cp -r "$OPENSHIFT_REPO_DIR"wsgi/OutSourcer/core/migrations "$OPENSHIFT_DATA_DIR"
 
