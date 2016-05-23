@@ -10,24 +10,24 @@ if [ ! -f "$OPENSHIFT_DATA_DIR"secrets.json ]; then
 fi
 
 
-cp -r "$OPENSHIFT_DATA_DIR"migrations "$OPENSHIFT_REPO_DIR"wsgi/myproject/core/
+cp -r "$OPENSHIFT_DATA_DIR"migrations "$OPENSHIFT_REPO_DIR"wsgi/OutSourcer/core/
 rm -rf "$OPENSHIFT_DATA_DIR"migrations
 
-python "$OPENSHIFT_REPO_DIR"wsgi/myproject/manage.py makemigrations core
+python "$OPENSHIFT_REPO_DIR"wsgi/OutSourcer/manage.py makemigrations core
 
-# GETTING-STARTED: change 'myproject' to your project name:
-echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/myproject/manage.py migrate --noinput'"
-# GETTING-STARTED: change 'myproject' to your project name:
-python "$OPENSHIFT_REPO_DIR"wsgi/myproject/manage.py migrate --noinput
+# GETTING-STARTED: change 'OutSourcer' to your project name:
+echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/OutSourcer/manage.py migrate --noinput'"
+# GETTING-STARTED: change 'OutSourcer' to your project name:
+python "$OPENSHIFT_REPO_DIR"wsgi/OutSourcer/manage.py migrate --noinput
 
-# GETTING-STARTED: change 'myproject' to your project name:
-echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/myproject/manage.py collectstatic --noinput'"
-# GETTING-STARTED: change 'myproject' to your project name:
-python "$OPENSHIFT_REPO_DIR"wsgi/myproject/manage.py collectstatic --noinput
+# GETTING-STARTED: change 'OutSourcer' to your project name:
+echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/OutSourcer/manage.py collectstatic --noinput'"
+# GETTING-STARTED: change 'OutSourcer' to your project name:
+python "$OPENSHIFT_REPO_DIR"wsgi/OutSourcer/manage.py collectstatic --noinput
 
 
 
-cp -r "$OPENSHIFT_REPO_DIR"wsgi/myproject/core/migrations "$OPENSHIFT_DATA_DIR"
+cp -r "$OPENSHIFT_REPO_DIR"wsgi/OutSourcer/core/migrations "$OPENSHIFT_DATA_DIR"
 
 
 
