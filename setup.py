@@ -25,7 +25,8 @@ setup(
         #'django-filter',
         #'django-redis-cache',
         #'drf-cached-instances',
-        #'hiredis==0.1.5'
+        #'hiredis==0.1.5',
+        'pysolr'
     ],
     dependency_links=[
         'https://pypi.python.org/simple/django/'
