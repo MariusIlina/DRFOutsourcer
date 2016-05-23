@@ -92,7 +92,7 @@ class Project(models.Model):
     work_description = models.TextField(default='')
     slug_name = models.CharField(max_length=200, null=True)
     required_techs = models.TextField(null=True)
-    approximate_hours_per_week = models.IntegerField(default=0)
+    #approximate_hours_per_week = models.IntegerField(default=0)
     payment_type = models.ForeignKey(PaymentTypes, null=True, blank=True)
     payment_amount = models.IntegerField(default=0)
     currency = models.ForeignKey(Currency, null=True)

@@ -4,15 +4,15 @@ from setuptools import setup
 
 setup(
     # GETTING-STARTED: set your app name:
-    name='YourAppName',
+    name='OutSourcer',
     # GETTING-STARTED: set your app version:
     version='1.0',
     # GETTING-STARTED: set your app description:
-    description='OpenShift App',
+    description='OutSourcer is a place where big companies find contractors and small companies find projects',
     # GETTING-STARTED: set author name (your name):
     author='Your Name',
     # GETTING-STARTED: set author email (your email):
-    author_email='example@example.com',
+    author_email='marius.ilina@yahoo.com',
     # GETTING-STARTED: set author url (your url):
     url='http://www.python.org/sigs/distutils-sig/',
     # GETTING-STARTED: define required django version:
@@ -26,7 +26,7 @@ setup(
         #'django-redis-cache',
         #'drf-cached-instances',
         #'hiredis==0.1.5',
-        'pysolr'
+        #'pysolr'
     ],
     dependency_links=[
         'https://pypi.python.org/simple/django/'
