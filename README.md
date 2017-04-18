@@ -7,6 +7,9 @@ IT professionals who start software companies find it quite difficult to get con
 
 The application's purpose is to help small-company owners to apply to projects for their company just like they would apply to a job.
 
+Requirements for running the application
+===================
+
 Before you push this app for the first time, you will need to change
 the [Django admin password](#admin-user-name-and-password).
 Then, when you first push this
