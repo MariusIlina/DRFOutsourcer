@@ -10,6 +10,8 @@ The application's purpose is to help small-company owners to apply to projects f
 Requirements for running the application
 ===================
 
+#### PosgreSQL
+
 Before you push this app for the first time, you will need to change
 the [Django admin password](#admin-user-name-and-password).
 Then, when you first push this
