@@ -7,7 +7,7 @@ IT professionals who start software companies find it quite difficult to get con
 
 The application's purpose is to help small-company owners to apply to projects for their company just like they would apply to a job.
 
-Requirements for running the application
+Before running the application
 ===================
 
 #### PosgreSQL
@@ -16,9 +16,17 @@ One of the reasons why we chose it is because it is the most compatible RDBMS wi
 
 Please make sure you have it installed on your system before installing the application.
 
-You can download it from [here](https://www.postgresql.org/download/). <a href="http://example.com/" target="_blank">Hello, world!</a>
+You can download it from <a href="https://www.postgresql.org/download/" target="_blank">PostgreSQL downloads page</a>.
 
 #### Redis
+Running a new database query each time a visitor wants to see a listing page can be really bad for the application's performance. Redis is used for caching result-sets and page-listings. 
+
+It is compulsory for the application to work.
+
+You can download Redis from <a href="https://www.postgresql.org/download/" target="_blank">here</a>.
+
+Installing the application
+===================
 
 Before you push this app for the first time, you will need to change
 the [Django admin password](#admin-user-name-and-password).
