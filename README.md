@@ -16,7 +16,7 @@ One of the reasons why we chose it is because it is the most compatible RDBMS wi
 
 Please make sure you have it installed on your system before installing the application.
 
-You can download it from [here](https://www.postgresql.org/download/).
+You can download it from [here](https://www.postgresql.org/download/). <a href="http://example.com/" target="_blank">Hello, world!</a>
 
 #### Redis
 
