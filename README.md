@@ -1,11 +1,9 @@
-Django on OpenShift
+About the OutSourcer project
 ===================
 
-This git repository helps you get up and running quickly w/ a Django
-installation on OpenShift.  The Django project name used in this repo
-is 'myproject' but you can feel free to change it.  Right now the
-backend is sqlite3 and the database runtime is found in
-`$OPENSHIFT_DATA_DIR/db.sqlite3`.
+OutSourcer is B2B-oriented application which enables software companies of all sizes to outsource projects to other companies.
+IT professionals who start software companies find it quite difficult to get contracts for their firm (being a lot more difficult than applying to a personal job based on past professional experience).
+The application's purpose is to help small-company owners to apply to projects for their company just like they would apply to a job.
 
 Before you push this app for the first time, you will need to change
 the [Django admin password](#admin-user-name-and-password).
