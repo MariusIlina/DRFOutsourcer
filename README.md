@@ -11,6 +11,13 @@ Requirements for running the application
 ===================
 
 #### PosgreSQL
+OutSourcer uses PosgreSQL for its data storage. 
+One of the reasons why we chose it is because it is the most compatible RDBMS with Django's migration system.
+
+Please make sure you have it installed on your system before installing the application.
+
+You can download it from https://www.postgresql.org/download/
+
 
 Before you push this app for the first time, you will need to change
 the [Django admin password](#admin-user-name-and-password).
