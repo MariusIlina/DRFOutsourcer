@@ -23,7 +23,19 @@ Running a new database query each time a visitor wants to see a listing page can
 
 It is compulsory for the application to work.
 
-You can download Redis from <a href="https://www.postgresql.org/download/" target="_blank">here</a>.
+You can download Redis from <a href="https://redis.io/download" target="_blank">here</a>.
+
+#### Python
+OutSourcer is written using Django, which is a framework for Python. Thus, in order to run OutSourcer, you have to install Python first. 
+
+Always be aware of the Python version you have installed. For OutSourcer, we recommend using version 2.7.
+
+You can download Python from <a href="https://www.python.org/downloads/" target="_blank">here</a>.
+
+#### PIP
+Pip is a package manager for Python. OutSourcer has multiple dependencies that have to be installed and PIP will take care of those for you.
+
+You can install PIP for Python using the instrunctions from <a href="https://pip.pypa.io/en/stable/installing/" target="_blank">here</a>.
 
 Installing the application
 ===================
