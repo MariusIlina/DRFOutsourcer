@@ -40,10 +40,31 @@ You can install PIP for Python using the instrunctions from <a href="https://pip
 Installing the application
 ===================
 
-Under `wsgi/OutSourcer` directory run the following command:
+1. Under `wsgi/OutSourcer` directory run the following command:
 ```
 pip install -r requirements.txt
 ``` 
+2. Create a database named `outsourcer`
+3. Open `wsgi/OutSourcer/settings.py` and edit the database settings, so that they corresponds to your credentials.
+4. Under `wsgi/OutSourcer` directory run the following commands, in this order:
+```
+python manage.py migrate auth
+```
+```
+python manage.py migrate
+```
+5. Now run this command and answer the question you are asked
+```
+python manage.py createsuperuser
+```
+6. Run the test server
+```
+python manage.py runserver
+```
+or if you want it to run on a specific port:
+```
+python manage.py runserver 9999
+```
 
 Before you push this app for the first time, you will need to change
 the [Django admin password](#admin-user-name-and-password).
