@@ -40,15 +40,20 @@ You can install PIP for Python using the instrunctions from <a href="https://pip
 Installing the application
 ===================
 
-1. Under `wsgi/OutSourcer` directory run the following command:
+1. Get the code
+
+```
+git clone https://github.com/paramount-consulting/OutSourcer
+```
+2. Under `wsgi/OutSourcer` directory run the following command:
 
 
 ```
 pip install -r requirements.txt
 ``` 
-2. Create a database named `outsourcer`
-3. Open `wsgi/OutSourcer/settings.py` and edit the database settings, so that they correspond to your credentials.
-4. Under `wsgi/OutSourcer` directory run the following commands, in this order:
+3. Create a database named `outsourcer`
+4. Open `wsgi/OutSourcer/settings.py` and edit the database settings, so that they correspond to your credentials.
+5. Under `wsgi/OutSourcer` directory run the following commands, in this order:
 
 
 ```
@@ -57,7 +62,7 @@ python manage.py migrate auth
 ```
 python manage.py migrate
 ```
-5. Now run this command and answer the question you are asked .
+6. Now run this command and answer the question you are asked .
 
     !!! IMPORTANT - the credentials you set here will be used to authenticate to the admin panel of the application.
 
