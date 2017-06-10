@@ -40,6 +40,11 @@ You can install PIP for Python using the instrunctions from <a href="https://pip
 Installing the application
 ===================
 
+Under **wsgi/OutSourcer** directory run the following command:
+```
+pip install -r requirements.txt
+``` 
+
 Before you push this app for the first time, you will need to change
 the [Django admin password](#admin-user-name-and-password).
 Then, when you first push this
