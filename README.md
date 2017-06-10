@@ -86,10 +86,31 @@ Using the application
 
 - `Companies` can bid on other companies' `Projects`
 
+- `Projects` fall into `Categories`
+
 - `Companies` can add comments about other `Companies` on a `Project`, if the project belongs to the company that is adding the comment
 
-- `Companies` can add recommendations for other companies.
--
+- `Companies` can add recommendations for other companies
+
+#### Business logic dependencies
+
+- `Currencies` - are used for determining the money type that is going to be used in a transaction.
+
+- `Time units` - can be any, like for example `hours`, `months`, `weeks`, `days` etc. These are used to determine the desired duration for a project.
+
+- `Payment type` - These tell how the payment for a project is going to be done. Can be something like `hourly`, `monthly`, `weekly`, `daily` etc.
+
+- `Countries` - A company is based in a country. That's where this is used. Countries are stored in a database table with the same name.
+
+- `Counties` & `Cities` - Used for the same as `Countries`. However they are not stored in the database, at the moment (not implemented yet). They must be provided as strings, from Google Places or other APIs.
+
+- `Categories` - Used for grouping projects. Can be any.
+
+#### Users
+
+#### Ownership behaviour
+
+
 
 
 
