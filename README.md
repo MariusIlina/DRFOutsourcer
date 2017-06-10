@@ -57,7 +57,9 @@ python manage.py migrate auth
 ```
 python manage.py migrate
 ```
-5. Now run this command and answer the question you are asked
+5. Now run this command and answer the question you are asked .
+
+!!! IMPORTANT - the credentials you set here will be used to authenticate to the admin panel of the application.
 
 
 ```
@@ -67,7 +69,7 @@ python manage.py createsuperuser
 Running the application
 ===================
 
-Run the test server
+Run the test server (will run on port 8000)
 ```
 python manage.py runserver
 ```
@@ -75,6 +77,12 @@ or if you want it to run on a specific port:
 ```
 python manage.py runserver 9999
 ```
+
+You can now go to `http://localhost:8000` (or whatever port you set).
+
+Here you can see the Graphical User Interface fot the API.
+
+You can also go to the administration panel, located at  `http://localhost:8000/admin` and log in using the credentials that you have earlier set for the superuser.
 
 Using the application
 ===================
