@@ -20,4 +20,6 @@ router.register(r'comments', CommentViewSet)
 
 urlpatterns = patterns('core.api.views',
     url(r'^', include(router.urls)),
+    url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
+    url(r'^jet/', include('jet.urls', 'jet')),
 )

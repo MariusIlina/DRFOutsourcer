@@ -1,11 +1,10 @@
 import django_filters
-from rest_framework import filters
 from core.models import Project
 
 
-class ProjectFilter(filters.FilterSet):
-    min_amount = django_filters.NumberFilter(name="payment_amount", lookup_type='gte')
-    max_amount = django_filters.NumberFilter(name="payment_amount", lookup_type='lte')
+class ProjectFilter(django_filters.rest_framework.FilterSet):
+    min_amount = django_filters.NumberFilter(name="payment_amount", lookup_expr='gte')
+    max_amount = django_filters.NumberFilter(name="payment_amount", lookup_expr='lte')
 
     class Meta:
         model = Project

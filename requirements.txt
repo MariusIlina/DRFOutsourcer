@@ -1,0 +1,10 @@
+Django==1.8.4
+djangorestframework
+django-cors-headers
+django-haystack
+drf-haystack
+django-filter
+django-redis-cache
+drf-cached-instances
+hiredis==0.1.5
+pysolr

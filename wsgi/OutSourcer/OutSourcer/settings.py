@@ -21,10 +21,6 @@ sys.path.append(os.path.join(REPO_DIR, 'libs'))
 import secrets
 SECRETS = secrets.getter(os.path.join(DATA_DIR, 'secrets.json'))
 
-ON_OPENSHIFT = False
-if os.environ.has_key('OPENSHIFT_REPO_DIR'):
-     ON_OPENSHIFT = True
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -35,17 +31,14 @@ SECRET_KEY = SECRETS['secret_key']
 DEBUG = True
 
 from socket import gethostname
-ALLOWED_HOSTS = [
-    gethostname(), # For internal OpenShift load balancer security purposes.
-    os.environ.get('OPENSHIFT_APP_DNS'), # Dynamically map to the OpenShift gear name.
-    #'example.com', # First DNS alias (set up in the app)
-    #'www.example.com', # Second DNS alias (set up in the app)
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = (
+    'jet.dashboard',
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -103,26 +96,16 @@ WSGI_APPLICATION = 'OutSourcer.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-if ON_OPENSHIFT:
-     DATABASES = {
-         'default': {
-             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-             'NAME': os.environ['OPENSHIFT_APP_NAME'],
-             'USER': os.environ['OPENSHIFT_POSTGRESQL_DB_USERNAME'],
-             'PASSWORD': os.environ['OPENSHIFT_POSTGRESQL_DB_PASSWORD'],
-             'HOST': os.environ['OPENSHIFT_POSTGRESQL_DB_HOST'],
-             'PORT': os.environ['OPENSHIFT_POSTGRESQL_DB_PORT'],
-         }
-     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            # GETTING-STARTED: change 'db.sqlite3' to your sqlite3 database:
-            'NAME': os.path.join(DATA_DIR, 'db.sqlite3'),
-        }
-    }
-
+DATABASES = {
+ 'default': {
+     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+     'NAME': 'outsourcer',
+     'USER': 'postgres',
+     'PASSWORD': 'postgres',
+     'HOST': '127.0.0.1',
+     'PORT': '5432',
+ }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -163,30 +146,27 @@ REST_FRAMEWORK = {
 import redis
 import redis_cache
 
-if ON_OPENSHIFT:
-    REDIS_CONNECTION_POOL = redis.ConnectionPool(
-        host=os.environ['OPENSHIFT_REDIS_HOST'],
-        port=os.environ['OPENSHIFT_REDIS_PORT'],
-        db=0,
-        password=os.environ['REDIS_PASSWORD']
-    )
-    REDIS_INIT = redis.Redis(connection_pool=REDIS_CONNECTION_POOL)
+REDIS_CONNECTION_POOL = redis.ConnectionPool(
+    host='127.0.0.1',
+    port=6379,
+    db=0,
+    password='admin'
+)
+REDIS_INIT = redis.Redis(connection_pool=REDIS_CONNECTION_POOL)
 
-    CACHES = {
-        'default': {
-            'BACKEND': 'redis_cache.RedisCache',
-            'LOCATION': [
-                os.environ['OPENSHIFT_REDIS_HOST'] + ':' + os.environ['OPENSHIFT_REDIS_PORT'],
-            ],
-            'TIMEOUT': None,
-            'OPTIONS': {
-                'DB': 0,
-                'PASSWORD': 'ZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5',
-                'PARSER_CLASS': 'redis.connection.HiredisParser',
-                'CONNECTION_POOL_CLASS': 'redis.BlockingConnectionPool',
-                'MAX_CONNECTIONS': 1000,
-            },
+CACHES = {
+    'default': {
+        'BACKEND': 'redis_cache.RedisCache',
+        'LOCATION': [
+            '127.0.0.1:6379',
+        ],
+        'TIMEOUT': None,
+        'OPTIONS': {
+            'DB': 0,
+            'PASSWORD': 'admin',
+            'PARSER_CLASS': 'redis.connection.HiredisParser',
+            'CONNECTION_POOL_CLASS': 'redis.BlockingConnectionPool',
+            'MAX_CONNECTIONS': 1000,
         },
-    }
-
-
+    },
+}
