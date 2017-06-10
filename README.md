@@ -45,8 +45,9 @@ Installing the application
 pip install -r requirements.txt
 ``` 
 2. Create a database named `outsourcer`
-3. Open `wsgi/OutSourcer/settings.py` and edit the database settings, so that they corresponds to your credentials.
+3. Open `wsgi/OutSourcer/settings.py` and edit the database settings, so that they correspond to your credentials.
 4. Under `wsgi/OutSourcer` directory run the following commands, in this order:
+
 ```
 python manage.py migrate auth
 ```
