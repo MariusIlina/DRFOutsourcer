@@ -1,11 +1,11 @@
 About the OutSourcer project
 ===================
 
-OutSourcer is B2B-oriented application which enables software companies of all sizes to outsource projects to other companies.
+OutSourcer is an API which aims to ease the development of B2B project-bidding applications.
 
 IT professionals who start software companies find it quite difficult to get contracts for their firm (being a lot more difficult than applying to a personal job based on past professional experience).
 
-The application's purpose is to help small-company owners to apply to projects for their company just like they would apply to a job.
+Application built using OutSourcer can enable software-companies of all sizes to outsource projects to other companies. Also, such applications can help small-company owners to apply to projects for their company just like they would apply to a job.
 
 Before running the application
 ===================
