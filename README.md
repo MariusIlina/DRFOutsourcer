@@ -79,6 +79,19 @@ python manage.py runserver 9999
 Using the application
 ===================
 
+#### Application flow
+- `Users` can create `Companies`
+
+- `Companies` can publish `Projects`
+
+- `Companies` can bid on other companies' `Projects`
+
+- `Companies` can add comments about other `Companies` on a `Project`, if the project belongs to the company that is adding the comment
+
+- `Companies` can add recommendations for other companies.
+-
+
+
 
 
 
