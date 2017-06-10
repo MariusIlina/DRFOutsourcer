@@ -95,6 +95,7 @@ Using the application
 #### Business-logic dependencies
 
 Business-logic dependencies are pieces of information needed throughout the application in different logical decisions.
+
 These are set by staff users, not by end-users.
 
 - `Currencies` - are used for determining the money type that is going to be used in a transaction.
