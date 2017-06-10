@@ -92,7 +92,10 @@ Using the application
 
 - `Companies` can add recommendations for other companies
 
-#### Business logic dependencies
+#### Business-logic dependencies
+
+Business-logic dependencies are pieces of information needed throughout the application in different logical decisions.
+These are set by staff users, not by end-users.
 
 - `Currencies` - are used for determining the money type that is going to be used in a transaction.
 
@@ -100,11 +103,13 @@ Using the application
 
 - `Payment type` - These tell how the payment for a project is going to be done. Can be something like `hourly`, `monthly`, `weekly`, `daily` etc.
 
+- `Categories` - Used for grouping projects. Can be any.
+
+#### Company location
+
 - `Countries` - A company is based in a country. That's where this is used. Countries are stored in a database table with the same name.
 
 - `Counties` & `Cities` - Used for the same as `Countries`. However they are not stored in the database, at the moment (not implemented yet). They must be provided as strings, from Google Places or other APIs.
-
-- `Categories` - Used for grouping projects. Can be any.
 
 #### Users
 
