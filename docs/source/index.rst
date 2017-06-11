@@ -10,10 +10,19 @@ About
    :maxdepth: 2
    :caption: Contents:
 
-
+How it works
+==================
 
 Prequisites
 ==================
+
+.. toctree::
+   :maxdepth: 2
+
+   PostgreSQL
+   Redis
+   Python
+   PIP
 
 Installation
 ==================
