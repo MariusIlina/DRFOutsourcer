@@ -8,3 +8,6 @@ django-redis-cache
 drf-cached-instances
 hiredis==0.1.5
 pysolr
+sphinx
+sphinx-autobuild
+recommonmark
