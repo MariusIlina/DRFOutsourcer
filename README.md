@@ -1,7 +1,7 @@
 About the OutSourcer project
 ===================
 
-OutSourcer is an API which aims to ease the development of B2B project-bidding applications.
+OutSourcer is a self-managed, minimalist API which aims to ease the development of B2B project-bidding applications.
 
 IT professionals who start software companies often find it quite difficult to get contracts for their firm (being a lot more difficult than applying to a personal job based on past professional experience).
 
