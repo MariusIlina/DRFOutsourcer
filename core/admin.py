@@ -1,8 +1,14 @@
 from django.contrib import admin
-from .models import Company, Country, Category, PaymentTypes, Currency, TimeUnit, Project, Bid, Recommendation, Comment
-
-
-# Register your models here.
+from .models import Company
+from .models import Country
+from .models import Category
+from .models import PaymentTypes
+from .models import Currency
+from .models import TimeUnit
+from .models import Project
+from .models import Bid
+from .models import Recommendation
+from .models import Comment
 
 admin.site.register(Country)
 admin.site.register(Company)

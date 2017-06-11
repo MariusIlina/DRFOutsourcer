@@ -1,9 +1,9 @@
-from django.contrib.auth.models import User
-from rest_framework.serializers import ModelSerializer #HyperlinkedModelSerializer
-from rest_framework.serializers import ValidationError #HyperlinkedRelatedField
+from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ValidationError, CharField
 from core.models import Company, Country, PaymentTypes, Currency
 from core.models import TimeUnit, Project, Bid, Recommendation, Category, Comment
 from django.core.validators import validate_email
+from django.contrib.auth import get_user_model
 
 
 class PaymentTypesSerializer(ModelSerializer):
@@ -28,6 +28,7 @@ class CountrySerializer(ModelSerializer):
     class Meta:
         model = Country
         fields = ('id', 'country_name', 'country_code')
+
 
 class CompanySerializer(ModelSerializer):
     class Meta:
@@ -73,3 +74,21 @@ class CategorySerializer(ModelSerializer):
     class Meta:
         model = Category
         fields = ('id', 'category_name')
+
+
+class UserSerializer(ModelSerializer):
+    password = CharField(write_only=True)
+
+    def create(self, validated_data):
+        user = get_user_model().objects.create(
+            username=validated_data['username'],
+            email=validated_data['email']
+        )
+        user.set_password(validated_data['password'])
+        user.save()
+        return user
+
+    class Meta:
+        model = get_user_model()
+        fields = ('username', 'email', 'password',)
+

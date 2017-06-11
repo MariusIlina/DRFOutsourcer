@@ -5,6 +5,7 @@ from core.api.views import TimeUnitViewSet, CountryViewSet
 from core.api.views import CompanyViewSet, ProjectViewSet
 from core.api.views import BidViewSet, RecommendationViewSet
 from core.api.views import CategoryViewSet, CommentViewSet
+from core.api.views import CreateUserView
 
 router = DefaultRouter()
 router.register(r'payment-types', PaymentTypesViewSet)
@@ -20,6 +21,7 @@ router.register(r'comments', CommentViewSet)
 
 urlpatterns = patterns('core.api.views',
     url(r'^', include(router.urls)),
+    url(r'register', CreateUserView.as_view(), name='user'),
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     url(r'^jet/', include('jet.urls', 'jet')),
 )

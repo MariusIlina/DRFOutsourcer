@@ -1,21 +1,19 @@
-from django.shortcuts import render, get_object_or_404
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from django.contrib.auth.models import User
-from django.http import Http404
-from rest_framework import status
 from rest_framework import viewsets, filters
 from serializers import PaymentTypesSerializer, CurrencySerializer
 from serializers import TimeUnitSerializer, CountrySerializer
 from serializers import CompanySerializer, ProjectSerializer
 from serializers import BidSerializer, RecommendationSerializer
 from serializers import CategorySerializer, CommentSerializer
+from serializers import UserSerializer
 from permissions import IsCompanyOwner, IsEntityOwner, EditorIsStaff
 from core.models import Company, Country, PaymentTypes, Currency, TimeUnit
 from core.models import Project, Bid, Recommendation, Category, Comment
 from filters import ProjectFilter
 from drf_cached_instances.mixins import CachedViewMixin
 from caches import ProjectCache
+from rest_framework.generics import CreateAPIView
+from django.contrib.auth import get_user_model
+from rest_framework.permissions import AllowAny
 
 
 # Create your views here.
@@ -84,3 +82,9 @@ class CategoryViewSet(viewsets.ModelViewSet):
     serializer_class = CategorySerializer
     permission_classes = (EditorIsStaff,)
     queryset = Category.objects.all()
+
+
+class CreateUserView(CreateAPIView):
+    model = get_user_model()
+    permission_classes = (AllowAny,)
+    serializer_class = UserSerializer
