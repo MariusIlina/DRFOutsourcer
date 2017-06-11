@@ -10,22 +10,9 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-DJ_PROJECT_DIR = os.path.dirname(__file__)
-BASE_DIR = os.path.dirname(DJ_PROJECT_DIR)
-WSGI_DIR = os.path.dirname(BASE_DIR)
-REPO_DIR = os.path.dirname(WSGI_DIR)
-DATA_DIR = os.environ.get('OPENSHIFT_DATA_DIR', BASE_DIR)
-
-import sys
-sys.path.append(os.path.join(REPO_DIR, 'libs'))
-import secrets
-SECRETS = secrets.getter(os.path.join(DATA_DIR, 'secrets.json'))
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = SECRETS['secret_key']
+SECRET_KEY =  '44_=3vqc0b)w*cqq#(fdkh13fx^*7yzeq*6vyj2tq+8kcy1&9z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -125,7 +112,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(WSGI_DIR, 'static')
+#STATIC_ROOT = os.path.join(WSGI_DIR, 'static')
 CORS_ORIGIN_ALLOW_ALL = True
 
 REST_FRAMEWORK = {
