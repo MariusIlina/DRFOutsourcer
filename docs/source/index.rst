@@ -16,13 +16,14 @@ How it works
 Prequisites
 ==================
 
-.. toctree::
-   :maxdepth: 2
-
-   PostgreSQL
-   Redis
-   Python
-   PIP
+PostgreSQL
+----------
+Redis
+----------
+Python
+--------
+PIP
+------
 
 Installation
 ==================
