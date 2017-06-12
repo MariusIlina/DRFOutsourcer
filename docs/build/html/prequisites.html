@@ -38,7 +38,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="OutSourcer 1.1 documentation" href="index.html"/>
-        <link rel="next" title="Getting started" href="installation.html"/>
+        <link rel="next" title="Installation" href="installation.html"/>
         <link rel="prev" title="About" href="about.html"/> 
 
   
@@ -92,7 +92,8 @@
               
             
             
-              <ul class="current">
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Prequisites</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#postgresql">PostgreSQL</a></li>
@@ -101,7 +102,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#pip">PIP</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 </ul>
 
             
@@ -171,18 +172,29 @@
 <h1>Prequisites<a class="headerlink" href="#prequisites" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="postgresql">
 <h2>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this headline">¶</a></h2>
-<p>OutSourcer uses PosgreSQL for its data storage. One of the reasons why we chose it is because it is the most compatible RDBMS with Django’s migration system.
-Please make sure you have it installed on your system before installing the application.
-You can download it from PostgreSQL downloads page.</p>
+<p>OutSourcer uses PosgreSQL for its data storage. <br />
+One of the reasons why we chose it is because it is the most compatible RDBMS with Django’s migration system. <br />
+Please make sure you have it installed on your system before installing the application. <br />
+You can download it from <a href="https://www.postgresql.org/download/" target="_blank">PostgreSQL downloads page</a>.</p>
 </div>
 <div class="section" id="redis">
 <h2>Redis<a class="headerlink" href="#redis" title="Permalink to this headline">¶</a></h2>
+<p>Running a new database query each time a visitor wants to see a listing page can be really bad for the application’s performance. <br />
+Redis is used for caching result-sets and page-listings. <br />
+It is compulsory for the application to work. <br />
+You can download Redis from <a href="https://redis.io/download" target="_blank">here</a>.</p>
 </div>
 <div class="section" id="python">
 <h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<p>OutSourcer is written using Django, which is a framework for Python. <br />
+Thus, in order to run OutSourcer, you have to install Python first. <br />
+Always be aware of the Python version you have installed. For OutSourcer, we recommend using version 2.7. <br />
+You can download Python from <a href="https://www.python.org/downloads/" target="_blank">here</a>.</p>
 </div>
 <div class="section" id="pip">
 <h2>PIP<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h2>
+<p>Pip is the package manager for Python. OutSourcer has multiple dependencies that have to be installed and PIP will take care of those for you. <br />
+You can install PIP for Python using the instrunctions from <a href="https://pip.pypa.io/en/stable/installing/" target="_blank">here</a>.</p>
 </div>
 </div>
 
@@ -196,7 +208,7 @@ You can download it from PostgreSQL downloads page.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="installation.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="about.html" class="btn btn-neutral" title="About" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
