@@ -24,7 +24,7 @@ Under the project-root directory run the following command:
     sudo pip install -r requirements.txt
 
 Create a database named ```outsourcer```. |br| |br|
-Open ```OutSourcer/settings.py``` and edit the database settings, so that they correspond to your credentials. |br| |br|
+Open ```OutSourcer/settings.py``` and edit the database section and REDIS section, so that they correspond to your credentials. |br| |br|
 Under the project-root directory run the following commands, in this order: |br|
 
 .. code-block:: bash
