@@ -1,5 +1,5 @@
 .. toctree::
-    :maxdepth: 5
+    :maxdepth: 7
     :caption: Before installing
 
 .. |br| raw:: html
