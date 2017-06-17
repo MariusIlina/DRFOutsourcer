@@ -34,7 +34,7 @@ One of the reasons why we chose it is because it is the most compatible RDBMS wi
 Please make sure you have it installed on your system before installing the application. |br|
 You can download it from |psql|. |br| |br|
 Make sure your system has ```psycopg2``` module installed.
-For example on Ubuntu, ```psycopg``` can be installed like this:
+For example on Ubuntu, ```psycopg2``` can be installed like this:
 
 .. code-block:: bash
 

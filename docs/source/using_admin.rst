@@ -26,8 +26,8 @@
 The Admin Interface
 ======================================
 
-The following entities are designed to be managed through the Admin panel, not via REST API. |br|
-However, they can be handled via API as well, if you wish so. |br| |br|
+The following entities are designed to be managed through the Admin panel. |br|
+They can be handled via API as well, if you wish so, but you probably don't want to have these exposed while in production. |br| |br|
 ```Categories``` |br|
 ```Countries``` |br|
 ```Time-units``` |br|
