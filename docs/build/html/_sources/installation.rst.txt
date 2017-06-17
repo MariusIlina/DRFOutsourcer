@@ -43,7 +43,7 @@ Now run this command and answer the question you are asked. |br|
 
     python manage.py createsuperuser
 
-Running the application
+Starting the application
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Run the test server (will run on port 8000) |br|
