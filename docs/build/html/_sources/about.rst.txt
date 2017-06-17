@@ -30,9 +30,9 @@ How it works?
 Is it free?
 ^^^^^^^^^^^^^^
 
-Yes, anyone can use OutSourcer API absolutely free of charge.
+Yes, you can use OutSourcer API absolutely free of charge.
 
 Can I change it?
 ^^^^^^^^^^^^^^^^^^^
 
-Yes, OutSourcer is open-source and it is distributed under GPL Licence.
+Yes, OutSourcer is open-source and it is distributed under BSD License.

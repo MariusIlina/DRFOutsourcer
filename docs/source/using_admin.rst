@@ -26,20 +26,15 @@
 The Admin Interface
 ======================================
 
-Managing users
-^^^^^^^^^^^^^^^^^^^^
+The following entities are designed to be managed through the Admin panel, not via REST API. |br|
+However, they can be handled via API as well, if you wish so. |br| |br|
+```Categories``` |br|
+```Countries``` |br|
+```Time-units``` |br|
+```Payment-types``` |br|
+```Currencies```
 
-Managing categories
-^^^^^^^^^^^^^^^^^^^^^
-
-Managing countries
-^^^^^^^^^^^^^^^^^^^^^
-
-Managing time-units
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Managing payment types
-^^^^^^^^^^^^^^^^^^^^^^^
-
-Managing currencies
-^^^^^^^^^^^^^^^^^^^^^
+The administration panel is the default Django implementation and is used by staff-users rather than end-users. |br| |br|
+The only staff-user that exists in the beginning is the superuser that was created during installation. |br| |br|
+The superuser can add other staff-users or give regulars the staff status. |br|
+Staff-users can edit virtually anything as long as they have the permission.

@@ -97,15 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prequisites.html">Prequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">The Admin Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#managing-users">Managing users</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#managing-categories">Managing categories</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#managing-countries">Managing countries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#managing-time-units">Managing time-units</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#managing-payment-types">Managing payment types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#managing-currencies">Managing currencies</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The Admin Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="using_api.html">Using the REST API</a></li>
 </ul>
 
@@ -174,24 +166,17 @@
 </div>
 <div class="section" id="the-admin-interface">
 <h1>The Admin Interface<a class="headerlink" href="#the-admin-interface" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="managing-users">
-<h2>Managing users<a class="headerlink" href="#managing-users" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="managing-categories">
-<h2>Managing categories<a class="headerlink" href="#managing-categories" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="managing-countries">
-<h2>Managing countries<a class="headerlink" href="#managing-countries" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="managing-time-units">
-<h2>Managing time-units<a class="headerlink" href="#managing-time-units" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="managing-payment-types">
-<h2>Managing payment types<a class="headerlink" href="#managing-payment-types" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="managing-currencies">
-<h2>Managing currencies<a class="headerlink" href="#managing-currencies" title="Permalink to this headline">¶</a></h2>
-</div>
+<p>The following entities are designed to be managed through the Admin panel, not via REST API. <br />
+However, they can be handled via API as well, if you wish so. <br /> <br />
+<code class="docutils literal"><span class="pre">`Categories`</span></code> <br />
+<code class="docutils literal"><span class="pre">`Countries`</span></code> <br />
+<code class="docutils literal"><span class="pre">`Time-units`</span></code> <br />
+<code class="docutils literal"><span class="pre">`Payment-types`</span></code> <br />
+<code class="docutils literal"><span class="pre">`Currencies`</span></code></p>
+<p>The administration panel is the default Django implementation and is used by staff-users rather than end-users. <br /> <br />
+The only staff-user that exists in the beginning is the superuser that was created during installation. <br /> <br />
+The superuser can add other staff-users or give regulars the staff status. <br />
+Staff-users can edit virtually anything as long as they have the permission.</p>
 </div>
 
 
