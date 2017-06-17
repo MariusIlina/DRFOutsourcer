@@ -182,26 +182,26 @@
 <p>Create a database named <code class="docutils literal"><span class="pre">`outsourcer`</span></code>. <br /> <br />
 Open <code class="docutils literal"><span class="pre">`OutSourcer/settings.py`</span></code> and edit the database section and REDIS section, so that they correspond to your credentials. <br /> <br />
 Under the project-root directory run the following commands, in this order: <br /></p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>python manage.py migrate auth
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo python manage.py migrate auth
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>python manage.py migrate
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo python manage.py migrate
 </pre></div>
 </div>
 <p>Now run this command and answer the question you are asked. <br /></p>
 <p>!!! IMPORTANT - the credentials you set here will be used to authenticate to the admin panel of the application. <br /></p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>python manage.py createsuperuser
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo python manage.py createsuperuser
 </pre></div>
 </div>
 </div>
 <div class="section" id="starting-the-application">
 <h2>Starting the application<a class="headerlink" href="#starting-the-application" title="Permalink to this headline">¶</a></h2>
 <p>Run the test server (will run on port 8000) <br /></p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>python manage.py runserver
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo python manage.py runserver
 </pre></div>
 </div>
 <p>or if you want it to run on a specific port: <br /></p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>python manage.py runserver <span class="m">9999</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo python manage.py runserver <span class="m">9999</span>
 </pre></div>
 </div>
 <p>You can now go to <code class="docutils literal"><span class="pre">`http://localhost:8000`</span></code> (or whatever port you set). <br /></p>

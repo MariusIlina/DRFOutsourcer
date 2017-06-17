@@ -32,7 +32,19 @@ PostgreSQL
 OutSourcer uses PosgreSQL for its data storage. |br|
 One of the reasons why we chose it is because it is the most compatible RDBMS with Django’s migration system. |br|
 Please make sure you have it installed on your system before installing the application. |br|
-You can download it from |psql|.
+You can download it from |psql|. |br| |br|
+Make sure your system has ```psycopg2``` module installed.
+For example on Ubuntu, ```psycopg``` can be installed like this:
+
+.. code-block:: bash
+
+    sudo apt-get install python-psycopg2
+
+You might also need this:
+
+.. code-block:: bash
+
+    sudo apt-get install libpq-dev
 
 Redis
 ^^^^^^^^^^^^^^^

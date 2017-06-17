@@ -29,11 +29,11 @@ Under the project-root directory run the following commands, in this order: |br|
 
 .. code-block:: bash
 
-    python manage.py migrate auth
+    sudo python manage.py migrate auth
 
 .. code-block:: bash
 
-    python manage.py migrate
+    sudo python manage.py migrate
 
 Now run this command and answer the question you are asked. |br|
 
@@ -41,7 +41,7 @@ Now run this command and answer the question you are asked. |br|
 
 .. code-block:: bash
 
-    python manage.py createsuperuser
+    sudo python manage.py createsuperuser
 
 Starting the application
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -50,13 +50,13 @@ Run the test server (will run on port 8000) |br|
 
 .. code-block:: bash
 
-    python manage.py runserver
+    sudo python manage.py runserver
 
 or if you want it to run on a specific port: |br|
 
 .. code-block:: bash
 
-    python manage.py runserver 9999
+    sudo python manage.py runserver 9999
 
 You can now go to ```http://localhost:8000``` (or whatever port you set). |br|
 
