@@ -1,5 +1,5 @@
 .. toctree::
-    :maxdepth: 20
+    :maxdepth: 40
     :caption: General information
 
 .. |br| raw:: html

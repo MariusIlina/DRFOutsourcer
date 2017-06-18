@@ -1,5 +1,5 @@
 .. toctree::
-    :maxdepth: 20
+    :maxdepth: 40
     :caption: General information
 
 .. |br| raw:: html
@@ -38,10 +38,45 @@ To create a company, we use the HTTP ```POST``` method:
           }
       });
 
-Accessing a company
-====================
+Accessing all companies
+========================
 
-In order to access the data about a company, we use the HTTP ```GET``` method:
+In order to obtain an object of all companies, we use the HTTP ```GET``` method:
+
+.. code-block:: javascript
+
+    $.ajax({
+        url: 'http://localhost:9000/companies/',
+        type: 'GET',
+        // Fetch the stored token from localStorage and set in the header
+        // beforeSend: function (xhr) {
+        //   xhr.setRequestHeader("Authorization", 'Token '+ localStorage.getItem('token'));
+        // },
+        success: function (response) {
+          console.log(response);
+        }
+    });
+
+Paginating a list of companies
+================================
+
+By default, the API will return an object containing 3 companies, and will indicate the url to the next page. |br|
+For example, if we have 5 companies in total, then we’ll have 2 pages. |br|
+For obtaining the first 3, ```http://localhost:8000/companies/``` is enough. |br|
+To go to the last 2, we need to change page: ```http://localhost:9000/companies/?page=2``` |br|
+
+The default number of items per page can be set by changing the ```PAGE_SIZE``` setting in ```settings.py```, under ```REST_FRAMEWORK``` options.
+
+Filtering a list of companies
+================================
+
+**Filters** other than pagination cannot be applied for companies as of this version. |br|
+This is going to be fixed in a future release.
+
+Accessing one specific company
+===============================
+
+In order to access the data about a company, we also use the HTTP ```GET``` method:
 
 .. code-block:: javascript
 

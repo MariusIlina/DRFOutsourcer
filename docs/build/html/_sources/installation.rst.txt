@@ -1,5 +1,5 @@
 .. toctree::
-    :maxdepth: 20
+    :maxdepth: 40
     :caption: Getting started
 
 .. |br| raw:: html
