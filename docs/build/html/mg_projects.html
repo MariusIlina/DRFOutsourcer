@@ -246,6 +246,28 @@ To go to the last 2, we need to change page: <code class="docutils literal"><spa
 </div>
 <div class="section" id="filtering-a-list-of-projects">
 <h1>Filtering a list of projects<a class="headerlink" href="#filtering-a-list-of-projects" title="Permalink to this headline">¶</a></h1>
+<p>When listing projects, filters can be applied:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://localhost:9000/projects/&#39;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+    <span class="c1">// Fetch the stored token from localStorage and set in the header</span>
+    <span class="c1">// beforeSend: function (xhr) {</span>
+    <span class="c1">//   xhr.setRequestHeader(&quot;Authorization&quot;, &#39;Token &#39;+ localStorage.getItem(&#39;token&#39;));</span>
+    <span class="c1">// },</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">category</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// Ex. &quot;1&quot; could mean &quot;Backend development&quot; or other categories...</span>
+      <span class="nx">by_company</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// Let&#39;s say this stands for &quot;SC Some Company SRL&quot;</span>
+      <span class="nx">currency</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// Let&#39;s say this stands for EUR etc.</span>
+      <span class="nx">payment_type</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="c1">// Say this means &quot;hourly&quot; etc.</span>
+      <span class="nx">min_amount</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span> <span class="c1">// If currency is EUR and payment type is &quot;hourly&quot;, then this is &quot;40&quot;-&quot;EUR&quot;-&quot;hourly&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Other filters will be added in a future release.</p>
 </div>
 <div class="section" id="accessing-one-specific-project">
 <h1>Accessing one specific project<a class="headerlink" href="#accessing-one-specific-project" title="Permalink to this headline">¶</a></h1>

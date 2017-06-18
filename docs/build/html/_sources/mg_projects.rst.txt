@@ -75,6 +75,31 @@ The default number of items per page can be set by changing the ```PAGE_SIZE``` 
 Filtering a list of projects
 ================================
 
+When listing projects, filters can be applied:
+
+.. code-block:: javascript
+
+    $.ajax({
+        url: 'http://localhost:9000/projects/',
+        type: 'GET',
+        // Fetch the stored token from localStorage and set in the header
+        // beforeSend: function (xhr) {
+        //   xhr.setRequestHeader("Authorization", 'Token '+ localStorage.getItem('token'));
+        // },
+        data: {
+          category: 1, // Ex. "1" could mean "Backend development" or other categories...
+          by_company: 1, // Let's say this stands for "SC Some Company SRL"
+          currency: 1, // Let's say this stands for EUR etc.
+          payment_type: 4, // Say this means "hourly" etc.
+          min_amount: 15, // If currency is EUR and payment type is "hourly", then this is "40"-"EUR"-"hourly"
+        },
+        success: function (response) {
+          console.log(response);
+        }
+    });
+
+Other filters will be added in a future release.
+
 Accessing one specific project
 ================================
 
