@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Creating a company &mdash; OutSourcer 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="About these documents"
+              href="about.html"/>
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="OutSourcer 1.1 documentation" href="index.html"/>
+        <link rel="up" title="Using the REST API" href="using_api.html"/>
+        <link rel="prev" title="Using the REST API" href="using_api.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> OutSourcer
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prequisites.html">Prequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using_admin.html">The Admin Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="using_api.html">Using the REST API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="using_api.html#creating-a-new-user">Creating a new user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_api.html#token-authentication">Token authentication</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="using_api.html#managing-companies">Managing companies</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Creating a company</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-a-company">Accessing a company</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#updating-a-company">Updating a company</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deleting-a-company">Deleting a company</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#final-notes">Final notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="using_api.html#managing-projects">Managing projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_api.html#managing-bids">Managing bids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_api.html#managing-recommendations">Managing recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_api.html#managing-comments">Managing comments</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OutSourcer</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="using_api.html">Using the REST API</a> &raquo;</li>
+        
+      <li>Creating a company</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/mg_companies.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="creating-a-company">
+<h1>Creating a company<a class="headerlink" href="#creating-a-company" title="Permalink to this headline">¶</a></h1>
+<p>Users must create at least one company, because almost everything in the application is company-based rather than user-based. <br /> <br />
+To create a company, we use the HTTP <code class="docutils literal"><span class="pre">`POST`</span></code> method:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://localhost:8000/companies/&#39;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="c1">// Fetch the stored token from localStorage and set in the header</span>
+    <span class="nx">beforeSend</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">&quot;Authorization&quot;</span><span class="p">,</span> <span class="s1">&#39;Token &#39;</span><span class="o">+</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">));</span>
+    <span class="p">},</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">company_name</span><span class="o">:</span> <span class="s2">&quot;SC Some Company SRL&quot;</span><span class="p">,</span>
+      <span class="nx">employees_no</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+      <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;Lorem ipsum&quot;</span><span class="p">,</span>
+      <span class="nx">country</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// Foreign key</span>
+      <span class="nx">county</span><span class="o">:</span> <span class="s2">&quot;Bucuresti&quot;</span><span class="p">,</span> <span class="c1">// String, can come from Google Places</span>
+      <span class="nx">city</span><span class="o">:</span> <span class="s2">&quot;Bucuresti&quot;</span><span class="p">,</span> <span class="c1">// String, can come from Google Places</span>
+      <span class="nx">slug_name</span><span class="o">:</span> <span class="s2">&quot;some_company&quot;</span><span class="p">,</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;admin@hi.com&quot;</span><span class="p">,</span>
+      <span class="nx">phone</span><span class="o">:</span> <span class="s2">&quot;0222999222&quot;</span><span class="p">,</span>
+      <span class="nx">external_link</span><span class="o">:</span> <span class="s2">&quot;www.google.com&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="accessing-a-company">
+<h1>Accessing a company<a class="headerlink" href="#accessing-a-company" title="Permalink to this headline">¶</a></h1>
+<p>In order to access the data about a company, we use the HTTP <code class="docutils literal"><span class="pre">`GET`</span></code> method:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://localhost:9000/companies/2/&#39;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+    <span class="c1">// Fetch the stored token from localStorage and set in the header</span>
+    <span class="c1">// beforeSend: function (xhr) {</span>
+    <span class="c1">//   xhr.setRequestHeader(&quot;Authorization&quot;, &#39;Token &#39;+ localStorage.getItem(&#39;token&#39;));</span>
+    <span class="c1">// },</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>As you can notice here, the token section is commented out. That is because company data can be accessed with or without being authenticated. <br /> <br />
+However, trying to achieve this for other operations will result in <code class="docutils literal"><span class="pre">`HTTP</span> <span class="pre">401</span> <span class="pre">UNAUTHORIZED`</span></code></p>
+</div>
+<div class="section" id="updating-a-company">
+<h1>Updating a company<a class="headerlink" href="#updating-a-company" title="Permalink to this headline">¶</a></h1>
+<p>To update a company, we can use the HTTP <code class="docutils literal"><span class="pre">`PUT`</span></code> method. <br /> This method requires that all the company fields are sent.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://localhost:8000/companies/2/&#39;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;PUT&#39;</span><span class="p">,</span>
+    <span class="nx">content_type</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+    <span class="c1">// Fetch the stored token from localStorage and set in the header</span>
+    <span class="nx">beforeSend</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">&quot;Authorization&quot;</span><span class="p">,</span> <span class="s1">&#39;Token &#39;</span><span class="o">+</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">));</span>
+    <span class="p">},</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">company_name</span><span class="o">:</span> <span class="s2">&quot;SC The firm SRL&quot;</span><span class="p">,</span>
+      <span class="nx">employees_no</span><span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
+      <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;Lorem ipsum dolor sic amet&quot;</span><span class="p">,</span>
+      <span class="nx">country</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// Foreign key</span>
+      <span class="nx">county</span><span class="o">:</span> <span class="s2">&quot;Brasov&quot;</span><span class="p">,</span> <span class="c1">// String, can come from Google Places</span>
+      <span class="nx">city</span><span class="o">:</span> <span class="s2">&quot;Rupea&quot;</span><span class="p">,</span> <span class="c1">// String, can come from Google Places</span>
+      <span class="nx">slug_name</span><span class="o">:</span> <span class="s2">&quot;the_firm&quot;</span><span class="p">,</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;the_firm@gmail.com&quot;</span><span class="p">,</span>
+      <span class="nx">phone</span><span class="o">:</span> <span class="s2">&quot;2342342342&quot;</span><span class="p">,</span>
+      <span class="nx">external_link</span><span class="o">:</span> <span class="s2">&quot;www.yahoo.com&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>If we only want to change some specific fields, and not all the data, we can use the HTTP <code class="docutils literal"><span class="pre">`PATCH`</span></code> method. <br />
+However, when using <code class="docutils literal"><span class="pre">`PATCH`</span></code>, you are required to send the <code class="docutils literal"><span class="pre">`email`</span></code> key all the time, even if you change it or not. (to be fixed in a future release)</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://localhost:8000/companies/2/&#39;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;PATCH&#39;</span><span class="p">,</span>
+    <span class="nx">content_type</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+    <span class="c1">// Fetch the stored token from localStorage and set in the header</span>
+    <span class="nx">beforeSend</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">&quot;Authorization&quot;</span><span class="p">,</span> <span class="s1">&#39;Token &#39;</span><span class="o">+</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">));</span>
+    <span class="p">},</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">employees_no</span><span class="o">:</span> <span class="mi">99</span><span class="p">,</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;fict@email.com&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="deleting-a-company">
+<h1>Deleting a company<a class="headerlink" href="#deleting-a-company" title="Permalink to this headline">¶</a></h1>
+<p>In order to remove a company, we use the HTTP <code class="docutils literal"><span class="pre">`DELETE`</span></code> method:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://localhost:8000/companies/2/&#39;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;DELETE&#39;</span><span class="p">,</span>
+    <span class="c1">// Fetch the stored token from localStorage and set in the header</span>
+    <span class="nx">beforeSend</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">&quot;Authorization&quot;</span><span class="p">,</span> <span class="s1">&#39;Token &#39;</span><span class="o">+</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">));</span>
+    <span class="p">},</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="final-notes">
+<h1>Final notes<a class="headerlink" href="#final-notes" title="Permalink to this headline">¶</a></h1>
+<p>Please note that <strong>the company that is being edited or deleted must belong to the user that is currently authenticated</strong>. <br /> <br />
+Trying to <code class="docutils literal"><span class="pre">`edit/delete`</span></code> a company that belongs to another user will result in a <code class="docutils literal"><span class="pre">`HTTP</span> <span class="pre">403</span> <span class="pre">FORBIDDEN`</span></code> error.</p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="using_api.html" class="btn btn-neutral" title="Using the REST API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Marius Ilina.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

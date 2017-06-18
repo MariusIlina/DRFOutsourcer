@@ -24,5 +24,5 @@ urlpatterns = [
 ]
 
 # Administration title and header
-admin.site.site_header = "OutSourcer administration"
-admin.site.site_title = "OutSourcer site admin"
+admin.site.site_header = "OutSourcer 1.1 administration"
+admin.site.site_title = "OutSourcer 1.1 site admin"
