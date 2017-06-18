@@ -18,6 +18,11 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^', include('core.api.urls')),
+    url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^token-auth/$', 'rest_framework.authtoken.views.obtain_auth_token'),
 ]
+
+# Administration title and header
+admin.site.site_header = "OutSourcer administration"
+admin.site.site_title = "OutSourcer site admin"

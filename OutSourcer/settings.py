@@ -24,8 +24,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = (
-    #'jet.dashboard',
-    #'jet',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -157,3 +156,5 @@ CACHES = {
         },
     },
 }
+
+GRAPPELLI_ADMIN_TITLE = "OutSourcer administration"
