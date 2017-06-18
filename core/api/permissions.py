@@ -6,6 +6,7 @@ from types import MethodType
 SAFE_METHODS = ['GET', 'HEAD', 'OPTIONS', 'POST']
 OWNER_METHODS = ['PUT', 'PATCH', 'DELETE']
 
+
 class PermissionToolSet:
     """
     Provides a set of tools for static operations on permissions
