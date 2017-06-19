@@ -1,5 +1,5 @@
 .. toctree::
-    :maxdepth: 40
+    :maxdepth: 800
     :caption: General information
 
 .. |br| raw:: html
@@ -68,7 +68,7 @@ Paginating a list of projects
 By default, the API will return an object containing 3 projects, and will indicate the url to the next page. |br|
 For example, if we have 5 projects in total, then we'll have 2 pages. |br|
 For obtaining the first 3, ```http://localhost:8000/projects/``` is enough. |br|
-To go to the last 2, we need to change page: ```http://localhost:9000/projects/?page=2``` |br|
+To go to the last 2, we need to change page: ```http://localhost:8000/projects/?page=2``` |br|
 
 The default number of items per page can be set by changing the ```PAGE_SIZE``` setting in ```settings.py```, under ```REST_FRAMEWORK``` options.
 
@@ -80,7 +80,7 @@ When listing projects, filters can be applied:
 .. code-block:: javascript
 
     $.ajax({
-        url: 'http://localhost:9000/projects/',
+        url: 'http://localhost:8000/projects/',
         type: 'GET',
         // Fetch the stored token from localStorage and set in the header
         // beforeSend: function (xhr) {
@@ -164,7 +164,7 @@ Doing a ```PUT``` may be a little too much if we only want to change a field or 
 .. code-block:: javascript
 
     $.ajax({
-        url: 'http://localhost:9000/projects/2/',
+        url: 'http://localhost:8000/projects/3/',
         type: 'PATCH',
         // Fetch the stored token from localStorage and set in the header
         beforeSend: function (xhr) {
@@ -188,7 +188,7 @@ In order to remove a project, we use the HTTP ```DELETE``` method:
 .. code-block:: javascript
 
     $.ajax({
-        url: 'http://localhost:9000/projects/3/',
+        url: 'http://localhost:8000/projects/3/',
         type: 'DELETE',
         // Fetch the stored token from localStorage and set in the header
         beforeSend: function (xhr) {

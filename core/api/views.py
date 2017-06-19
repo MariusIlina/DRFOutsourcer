@@ -8,7 +8,7 @@ from serializers import UserSerializer
 from permissions import IsCompanyOwner, IsEntityOwner, EditorIsStaff
 from core.models import Company, Country, PaymentTypes, Currency, TimeUnit
 from core.models import Project, Bid, Recommendation, Category, Comment
-from filters import ProjectFilter
+from filters import ProjectFilter, CompanyFilter, BidFilter, RecommendationFilter, CommentFilter
 from drf_cached_instances.mixins import CachedViewMixin
 from caches import ProjectCache
 from rest_framework.generics import CreateAPIView
@@ -46,6 +46,8 @@ class CompanyViewSet(viewsets.ModelViewSet):
     serializer_class = CompanySerializer
     permission_classes = (IsCompanyOwner,)
     queryset = Company.objects.all()
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_class = CompanyFilter
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
@@ -64,18 +66,24 @@ class BidViewSet(viewsets.ModelViewSet):
     serializer_class = BidSerializer
     permission_classes = (IsEntityOwner,)
     queryset = Bid.objects.all()
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_class = BidFilter
 
 
 class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
     permission_classes = (IsEntityOwner,)
     queryset = Comment.objects.all()
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_class = CommentFilter
 
 
 class RecommendationViewSet(viewsets.ModelViewSet):
     serializer_class = RecommendationSerializer
     permission_classes = (IsEntityOwner,)
     queryset = Recommendation.objects.all()
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_class = RecommendationFilter
 
 
 class CategoryViewSet(viewsets.ModelViewSet):

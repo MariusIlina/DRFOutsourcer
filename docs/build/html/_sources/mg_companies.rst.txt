@@ -1,5 +1,5 @@
 .. toctree::
-    :maxdepth: 40
+    :maxdepth: 800
     :caption: General information
 
 .. |br| raw:: html
@@ -70,8 +70,29 @@ The default number of items per page can be set by changing the ```PAGE_SIZE``` 
 Filtering a list of companies
 ================================
 
-**Filters** other than pagination cannot be applied for companies as of this version. |br|
-This is going to be fixed in a future release.
+When listing companies, several filters can be applied:
+
+.. code-block:: javascript
+
+    $.ajax({
+        url: 'http://localhost:8000/companies/',
+        type: 'GET',
+        // Fetch the stored token from localStorage and set in the header
+        // beforeSend: function (xhr) {
+        //   xhr.setRequestHeader("Authorization", 'Token '+ localStorage.getItem('token'));
+        // },
+        data: {
+          country: 1, // Foreign key Integer
+          county: "Brasov", // String, can come from Google Places for example
+          city: "Rupea", // String, can come from Google Places for example
+          employees_no: 4 // Integer
+        },
+        success: function (response) {
+          console.log(response);
+        }
+    });
+
+Other filters will be added in a future release.
 
 Accessing one specific company
 ===============================
@@ -81,7 +102,7 @@ In order to access the data about a company, we also use the HTTP ```GET``` meth
 .. code-block:: javascript
 
     $.ajax({
-        url: 'http://localhost:9000/companies/2/',
+        url: 'http://localhost:8000/companies/2/',
         type: 'GET',
         // Fetch the stored token from localStorage and set in the header
         // beforeSend: function (xhr) {

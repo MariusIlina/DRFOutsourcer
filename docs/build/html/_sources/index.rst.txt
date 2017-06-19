@@ -1,5 +1,5 @@
 .. toctree::
-    :maxdepth: 40
+    :maxdepth: 800
     :caption: Documentation
 
     about

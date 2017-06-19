@@ -39,6 +39,7 @@
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="OutSourcer 1.1 documentation" href="index.html"/>
         <link rel="up" title="Using the REST API" href="using_api.html"/>
+        <link rel="next" title="Creating a bid" href="mg_bids.html"/>
         <link rel="prev" title="Creating a company" href="mg_companies.html"/> 
 
   
@@ -241,14 +242,14 @@ That being said, to create a project, we use the HTTP <code class="docutils lite
 <p>By default, the API will return an object containing 3 projects, and will indicate the url to the next page. <br />
 For example, if we have 5 projects in total, then we&#8217;ll have 2 pages. <br />
 For obtaining the first 3, <code class="docutils literal"><span class="pre">`http://localhost:8000/projects/`</span></code> is enough. <br />
-To go to the last 2, we need to change page: <code class="docutils literal"><span class="pre">`http://localhost:9000/projects/?page=2`</span></code> <br /></p>
+To go to the last 2, we need to change page: <code class="docutils literal"><span class="pre">`http://localhost:8000/projects/?page=2`</span></code> <br /></p>
 <p>The default number of items per page can be set by changing the <code class="docutils literal"><span class="pre">`PAGE_SIZE`</span></code> setting in <code class="docutils literal"><span class="pre">`settings.py`</span></code>, under <code class="docutils literal"><span class="pre">`REST_FRAMEWORK`</span></code> options.</p>
 </div>
 <div class="section" id="filtering-a-list-of-projects">
 <h1>Filtering a list of projects<a class="headerlink" href="#filtering-a-list-of-projects" title="Permalink to this headline">¶</a></h1>
 <p>When listing projects, filters can be applied:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://localhost:9000/projects/&#39;</span><span class="p">,</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://localhost:8000/projects/&#39;</span><span class="p">,</span>
     <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
     <span class="c1">// Fetch the stored token from localStorage and set in the header</span>
     <span class="c1">// beforeSend: function (xhr) {</span>
@@ -324,7 +325,7 @@ In this example, we&#8217;ll only change the project title.</p>
 </div>
 <p>Doing a <code class="docutils literal"><span class="pre">`PUT`</span></code> may be a little too much if we only want to change a field or two. <br /> It could be easier to just use the HTTP <code class="docutils literal"><span class="pre">`PATCH`</span></code> method for this. <br /></p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://localhost:9000/projects/2/&#39;</span><span class="p">,</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://localhost:8000/projects/3/&#39;</span><span class="p">,</span>
     <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;PATCH&#39;</span><span class="p">,</span>
     <span class="c1">// Fetch the stored token from localStorage and set in the header</span>
     <span class="nx">beforeSend</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">)</span> <span class="p">{</span>
@@ -345,7 +346,7 @@ In this example, we&#8217;ll only change the project title.</p>
 <p>Take note that a project can only be deleted if it was published by a company that belongs to the currently authenticated user. <br /> <br />
 In order to remove a project, we use the HTTP <code class="docutils literal"><span class="pre">`DELETE`</span></code> method:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://localhost:9000/projects/3/&#39;</span><span class="p">,</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://localhost:8000/projects/3/&#39;</span><span class="p">,</span>
     <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;DELETE&#39;</span><span class="p">,</span>
     <span class="c1">// Fetch the stored token from localStorage and set in the header</span>
     <span class="nx">beforeSend</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">)</span> <span class="p">{</span>
@@ -368,6 +369,8 @@ In order to remove a project, we use the HTTP <code class="docutils literal"><sp
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mg_bids.html" class="btn btn-neutral float-right" title="Creating a bid" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="mg_companies.html" class="btn btn-neutral" title="Creating a company" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

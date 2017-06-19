@@ -1,5 +1,5 @@
 .. toctree::
-    :maxdepth: 40
+    :maxdepth: 800
     :caption: Before installing
 
 .. |br| raw:: html
@@ -83,8 +83,20 @@ Managing projects
 Managing bids
 ^^^^^^^^^^^^^^^^^^^^
 
+.. toctree::
+
+    mg_bids
+
 Managing recommendations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. toctree::
+
+    mg_recommendations
+
 Managing comments
 ^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+
+    mg_comments
