@@ -193,6 +193,12 @@ For example on Ubuntu, <code class="docutils literal"><span class="pre">`psycopg
 <p>Running a new database query each time a visitor wants to see a listing page can be really bad for the application’s performance. <br />
 Redis is used for caching result-sets and page-listings. <br />
 It is compulsory for the application to work. <br />
+You need to set a password for Redis before using it. This can be achieved by:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>redis-cli&gt; REQUIREPASS <span class="s2">&quot;mySecretPass&quot;</span>
+</pre></div>
+</div>
+<p>!!! <strong>IMPORTANT</strong> !!! <br /></p>
+<p>The application caches Projects with Redis. If for some reason you think your projects are not getting updated, check redis keys. <br /> <br />
 You can download Redis from <a href="https://redis.io/download" target="_blank">here</a>.</p>
 </div>
 <div class="section" id="python">

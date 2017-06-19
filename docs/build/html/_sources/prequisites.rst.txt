@@ -52,6 +52,15 @@ Redis
 Running a new database query each time a visitor wants to see a listing page can be really bad for the application’s performance. |br|
 Redis is used for caching result-sets and page-listings. |br|
 It is compulsory for the application to work. |br|
+You need to set a password for Redis before using it. This can be achieved by:
+
+.. code-block:: bash
+
+    redis-cli> REQUIREPASS "mySecretPass"
+
+!!! **IMPORTANT** !!! |br|
+
+The application caches Projects with Redis. If for some reason you think your projects are not getting updated, check redis keys. |br| |br|
 You can download Redis from |redis|.
 
 Python
