@@ -1,3 +1,6 @@
+Docs
+======================================
+
 .. toctree::
     :maxdepth: 800
     :caption: Documentation
