@@ -53,5 +53,23 @@ class Mock:
         'external_link': 'www.demo.com',
     }
 
+    company_a_edited = {
+        'company_name': 'SC Changed Name SRL',
+        'employees_no': 47,
+        'description': 'Lorem ipsum dolor sic amet',
+        'country': 1,
+        'county': 'Bucharest',
+        'city': 'Bucharest',
+        'slug_name': 'some_company',
+        'email': 'admin@hi.com',
+        'phone': '000111111111',
+        'external_link': 'www.example.com',
+    }
+
+    company_a_patched = {
+        'slug_name': 'changed_name',
+        'email': 'test@example.com'
+    }
+
     def __init__(self):
         pass
