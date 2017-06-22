@@ -139,7 +139,7 @@ class CompanyTest(TransactionTestCase):
         response = self.__class__.h_client.delete(uri)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
-        # Anonymous users should not be able to partial-update any companies
+        # Anonymous users should not be able to delete any companies
         response = self.__class__.a_client.delete(uri)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
@@ -147,4 +147,3 @@ class CompanyTest(TransactionTestCase):
         response = self.__class__.client.delete(uri)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(Company.objects.count(), 0)
-
