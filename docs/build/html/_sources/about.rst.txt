@@ -12,10 +12,8 @@ About
 What's this about?
 ^^^^^^^^^^^^^^^^^^^^
 
-OutSourcer is a self-hosted, minimalist REST API which aims to ease the development of B2B project-bidding applications. |br| |br|
+OutSourcer is a self-hosted, minimalist Backend API which aims to ease the development of B2B project-bidding applications. |br| |br|
 OutSourcer is composed of a "Browsable API" and an "Admin Interface". |br| |br|
-IT professionals who start software companies often find it quite difficult to get contracts for their firm (being a lot more difficult than applying to a personal job based on past professional experience). |br| |br|
-Applications built using OutSourcer can enable software-companies of all sizes to outsource projects to other companies. Also, such applications can help small-company owners to apply to projects for their company just like they would apply to a job.
 
 How it works?
 ^^^^^^^^^^^^^^^

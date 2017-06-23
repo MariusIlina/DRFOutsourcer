@@ -6,6 +6,14 @@
 
     <br />
 
+.. |apache| raw:: html
+
+   <a href="https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/modwsgi/" target="_blank">Using Django 1.8 with Apache</a>
+
+.. |nginx| raw:: html
+
+   <a href="https://uwsgi.readthedocs.io/en/latest/tutorials/Django_and_nginx.html" target="_blank">Using Django 1.8 with NGINX</a>
+
 
 Installation
 ======================================
@@ -63,3 +71,27 @@ You can now go to ```http://localhost:8000``` (or whatever port you set). |br|
 Here you can see the Graphical User Interface for the API. |br|
 
 You can also go to the administration panel, located at ```http://localhost:8000/admin``` and log in using the credentials that you have earlier set for the superuser.
+
+Going in production
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you take the app into production, you should not use the built-in test server. |br|
+OutSourcer is built on top of Django Framework, so let's have a look on how to deploy a Django app to production. |br| |br|
+|apache| |br|
+|nginx| |br| |br|
+For production it is important to disable the Browsable API feature of Django's Rest Framework.
+To disable it, go to ```settings.py```, find the REST_FRAMEWORK section and add this to it:
+
+.. code-block:: python
+
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+
+Now find the ```DEBUG``` setting in ```settings.py``` and change it to:
+
+.. code-block:: python
+
+    DEBUG = False
+
+because you don't need error reporting in a production environment.

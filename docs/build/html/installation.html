@@ -99,6 +99,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#starting-the-application">Starting the application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#going-in-production">Going in production</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="using_admin.html">The Admin Interface</a></li>
@@ -207,6 +208,25 @@ Under the project-root directory run the following commands, in this order: <br 
 <p>You can now go to <code class="docutils literal"><span class="pre">`http://localhost:8000`</span></code> (or whatever port you set). <br /></p>
 <p>Here you can see the Graphical User Interface for the API. <br /></p>
 <p>You can also go to the administration panel, located at <code class="docutils literal"><span class="pre">`http://localhost:8000/admin`</span></code> and log in using the credentials that you have earlier set for the superuser.</p>
+</div>
+<div class="section" id="going-in-production">
+<h2>Going in production<a class="headerlink" href="#going-in-production" title="Permalink to this headline">¶</a></h2>
+<p>If you take the app into production, you should not use the built-in test server. <br />
+OutSourcer is built on top of Django Framework, so let&#8217;s have a look on how to deploy a Django app to production. <br /> <br />
+<a href="https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/modwsgi/" target="_blank">Using Django 1.8 with Apache</a> <br />
+<a href="https://uwsgi.readthedocs.io/en/latest/tutorials/Django_and_nginx.html" target="_blank">Using Django 1.8 with NGINX</a> <br /> <br />
+For production it is important to disable the Browsable API feature of Django&#8217;s Rest Framework.
+To disable it, go to <code class="docutils literal"><span class="pre">`settings.py`</span></code>, find the REST_FRAMEWORK section and add this to it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;DEFAULT_RENDERER_CLASSES&#39;</span><span class="p">:</span> <span class="p">(</span>
+    <span class="s1">&#39;rest_framework.renderers.JSONRenderer&#39;</span><span class="p">,</span>
+<span class="p">),</span>
+</pre></div>
+</div>
+<p>Now find the <code class="docutils literal"><span class="pre">`DEBUG`</span></code> setting in <code class="docutils literal"><span class="pre">`settings.py`</span></code> and change it to:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+</div>
+<p>because you don&#8217;t need error reporting in a production environment.</p>
 </div>
 </div>
 
