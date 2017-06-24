@@ -62,11 +62,9 @@ or if you want it to run on a specific port: |br|
 
     sudo python manage.py runserver 9999
 
-You can now go to ```http://localhost:8000``` (or whatever port you set). |br|
+Go to the administration panel, located at ```http://localhost:8000/admin``` (or whatever port you set) and log in using the credentials that you have earlier set for the superuser. |br|
 
-Here you can see the Graphical User Interface for the API. |br|
-
-You can also go to the administration panel, located at ```http://localhost:8000/admin``` and log in using the credentials that you have earlier set for the superuser.
+You can now go to ```http://localhost:8000``` and play with the Browsable API feature, provided by Django Rest Framework. |br|
 
 Going in production
 ^^^^^^^^^^^^^^^^^^^^^^^^
