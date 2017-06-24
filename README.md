@@ -1,8 +1,8 @@
 About
 =======
 
-OutSourcer is a self-hosted, minimalist Backend API which aims to ease the development of B2B project-bidding applications. |br| |br|
-OutSourcer is composed of a "Browsable API" and an "Admin Interface". |br| |br|
+OutSourcer is a self-hosted, minimalist Backend API which aims to ease the development of B2B project-bidding applications. <br />
+OutSourcer is composed of a "Browsable API" and an "Admin Interface".
 
 How does it wo work?
 =====================
