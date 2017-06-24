@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>About &mdash; OutSourcer 1.1 documentation</title>
+  <title>Frequently asked questions &mdash; OutSourcer 1.1 documentation</title>
   
 
   
@@ -32,14 +32,11 @@
   
 
   
-        <link rel="author" title="About these documents"
-              href="#"/>
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="OutSourcer 1.1 documentation" href="index.html"/>
-        <link rel="next" title="Prequisites" href="prequisites.html"/>
-        <link rel="prev" title="Docs" href="index.html"/> 
+        <link rel="prev" title="Creating a comment" href="mg_comments.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -94,18 +91,20 @@
             
               <p class="caption"><span class="caption-text">Documentation</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">About</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#what-s-this-about">What&#8217;s this about?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-will-it-evolve">How will it evolve?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#is-it-free">Is it free?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#is-it-open-source">Is it open-source?</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="prequisites.html">Prequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="using_admin.html">The Admin Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="using_api.html">Using the REST API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Frequently asked questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-this-about">What&#8217;s this about?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-will-it-improve">How will it improve?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#is-it-free">Is it free?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#is-it-open-source">Is it open-source?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-it-written-in">What&#8217;s it written in?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#i-need-to-change-code">I need to change code</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -150,13 +149,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>About</li>
+      <li>Frequently asked questions</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/about.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/faq.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -171,8 +170,8 @@
             
   <div class="toctree-wrapper compound">
 </div>
-<div class="section" id="about">
-<h1>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="frequently-asked-questions">
+<h1>Frequently asked questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="what-s-this-about">
 <h2>What&#8217;s this about?<a class="headerlink" href="#what-s-this-about" title="Permalink to this headline">¶</a></h2>
 <p>OutSourcer is a self-hosted, minimalist Backend API which aims to ease the development of B2B project-bidding applications. <br /> <br />
@@ -183,16 +182,23 @@ OutSourcer is composed of a &#8220;Browsable API&#8221; and an &#8220;Admin Inte
 <ul class="simple">
 <li><strong>Users</strong> can create <strong>Companies</strong></li>
 <li><strong>Companies</strong> can publish <strong>Projects</strong></li>
-<li><strong>Companies</strong> can bid on other companies’ <strong>Projects</strong></li>
+<li><strong>Companies</strong> can bid on other companies’ <strong>Projects</strong>, as long as the user owns the company that is posting the project.</li>
 <li><strong>Projects</strong> fall into <strong>Categories</strong></li>
 <li><strong>Companies</strong> can add <strong>Comments</strong> about other companies on a <strong>Project</strong>, if the project belongs to the company that is adding the comment.</li>
 <li><strong>Companies</strong> can add <strong>Recommendations</strong> for other companies.</li>
 </ul>
 </div>
-<div class="section" id="how-will-it-evolve">
-<h2>How will it evolve?<a class="headerlink" href="#how-will-it-evolve" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="how-will-it-improve">
+<h2>How will it improve?<a class="headerlink" href="#how-will-it-improve" title="Permalink to this headline">¶</a></h2>
 <p>As it is the first version, we are planning on developing a lot of features in the future, as well as improving some behaviours. <br />
-While the application is functional at this moment, we are expecting feedback and improvement ideas from people who use this app.</p>
+While the application is functional at this moment, we are expecting feedback and improvement ideas from people who use this app. <br />
+For the next release, we&#8217;ll be completing some features like: <br /></p>
+<ul class="simple">
+<li>search <br /></li>
+<li>date-time filtering <br /></li>
+<li>results ordering <br /></li>
+</ul>
+<p>which are now either missing or buggy.</p>
 </div>
 <div class="section" id="is-it-free">
 <h2>Is it free?<a class="headerlink" href="#is-it-free" title="Permalink to this headline">¶</a></h2>
@@ -201,6 +207,16 @@ While the application is functional at this moment, we are expecting feedback an
 <div class="section" id="is-it-open-source">
 <h2>Is it open-source?<a class="headerlink" href="#is-it-open-source" title="Permalink to this headline">¶</a></h2>
 <p>Yes, OutSourcer is open-source and it is distributed under BSD License.</p>
+</div>
+<div class="section" id="what-s-it-written-in">
+<h2>What&#8217;s it written in?<a class="headerlink" href="#what-s-it-written-in" title="Permalink to this headline">¶</a></h2>
+<p>OutSourcer is written in <a href="https://www.python.org/" target="_blank">Python</a>, using <a href="https://www.djangoproject.com/" target="_blank">Django</a> and <a href="http://www.django-rest-framework.org/" target="_blank">Django Rest Framework</a>. <br />
+For the data-storage it uses <a href="https://www.postgresql.org/" target="_blank">PostgreSQL</a> and <a href="https://redis.io/" target="_blank">Redis</a>.</p>
+</div>
+<div class="section" id="i-need-to-change-code">
+<h2>I need to change code<a class="headerlink" href="#i-need-to-change-code" title="Permalink to this headline">¶</a></h2>
+<p>If your project needs something different than the default functionality (and it almost surely will), feel free to adapt the code to fit your needs. <br />
+Anyway, in order to make this easier for you, make sure you are comfortable with <a href="http://www.django-rest-framework.org/" target="_blank">Django Rest Framework</a>.</p>
 </div>
 </div>
 
@@ -214,10 +230,8 @@ While the application is functional at this moment, we are expecting feedback an
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="prequisites.html" class="btn btn-neutral float-right" title="Prequisites" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="index.html" class="btn btn-neutral" title="Docs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="mg_comments.html" class="btn btn-neutral" title="Creating a comment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
