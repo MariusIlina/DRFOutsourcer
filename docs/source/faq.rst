@@ -29,23 +29,7 @@
 Frequently asked questions
 ======================================
 
-What's this about?
-^^^^^^^^^^^^^^^^^^^^
-
-OutSourcer is a self-hosted, minimalist Backend API which aims to ease the development of B2B project-bidding applications. |br| |br|
-OutSourcer is composed of a "Browsable API" and an "Admin Interface". |br| |br|
-
-How it works?
-^^^^^^^^^^^^^^^
-
-* **Users** can create **Companies**
-* **Companies** can publish **Projects**
-* **Companies** can bid on other companies’ **Projects**, as long as the user owns the company that is posting the project.
-* **Projects** fall into **Categories**
-* **Companies** can add **Comments** about other companies on a **Project**, if the project belongs to the company that is adding the comment.
-* **Companies** can add **Recommendations** for other companies.
-
-How will it improve?
+How will this improve?
 ^^^^^^^^^^^^^^^^^^^^
 
 As it is the first version, we are planning on developing a lot of features in the future, as well as improving some behaviours. |br|
