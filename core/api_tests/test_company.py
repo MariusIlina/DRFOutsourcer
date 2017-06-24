@@ -1,35 +1,10 @@
-from rest_framework.test import APITestCase
 from django.test import TransactionTestCase
 from django.contrib.auth.models import User
-from mock import Mock
-from models import Country, Company
+from core.mock import Mock
+from core.models import Country, Company
 from rest_framework.authtoken.models import Token
 from rest_framework.test import APIClient
 from rest_framework import status
-
-
-class UserTests(APITestCase):
-
-    def setUp(self):
-        """
-        Set up class dependencies 
-        """
-        self.client.post('/register/', Mock.user_a, format='json')
-
-    def test_create_user(self):
-        """
-        Ensure users can be created
-        """
-        self.assertEqual(User.objects.count(), 1)
-        self.assertEqual(User.objects.first().username, Mock.user_a['username'])
-
-    def test_auth_user(self):
-        """
-        Ensure users can be authenticated 
-        """
-        response = self.client.post('/token-auth/', Mock.credentials_a, format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertTrue(len(response.data['token']) > 0)
 
 
 class CompanyTest(TransactionTestCase):
@@ -147,3 +122,24 @@ class CompanyTest(TransactionTestCase):
         response = self.__class__.client.delete(uri)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(Company.objects.count(), 0)
+
+    def test_read_company(self):
+        """
+        Ensure user can list companies and access data for a single company
+        """
+        company_a = self.__class__.client.post('/companies/', Mock.company_a, format='json')
+        company_b = self.__class__.client.post('/companies/', Mock.company_b, format='json')
+
+        # List companies
+        response = self.__class__.client.get('/companies/')
+        self.assertEqual(response.data['count'], 2)
+
+        # List company A
+        uri = '/companies/' + str(company_a.data['id']) + '/'
+        response = self.__class__.h_client.get(uri)
+        self.assertEqual(response.data['company_name'], Mock.company_a['company_name'])
+
+        # List company B
+        uri = '/companies/' + str(company_b.data['id']) + '/'
+        response = self.__class__.h_client.get(uri)
+        self.assertEqual(response.data['company_name'], Mock.company_b['company_name'])

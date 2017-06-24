@@ -10,6 +10,10 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import sys
+
+PROJECT_ROOT = os.path.dirname(__file__)
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'core/api_tests'))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY =  '44_=3vqc0b)w*cqq#(fdkh13fx^*7yzeq*6vyj2tq+8kcy1&9z'

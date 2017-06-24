@@ -37,10 +37,6 @@ Under the project-root directory run the following commands, in this order: |br|
 
 .. code-block:: bash
 
-    sudo python manage.py migrate auth
-
-.. code-block:: bash
-
     sudo python manage.py migrate
 
 Now run this command and answer the question you are asked. |br|
