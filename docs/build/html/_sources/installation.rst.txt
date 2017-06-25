@@ -23,7 +23,7 @@ Getting started
 
 .. code-block:: html
 
-    git clone https://github.com/paramount-consulting/OutSourcer
+    git clone https://github.com/MariusIlina/OutSourcer
 
 Under the project-root directory run the following command:
 
