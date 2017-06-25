@@ -47,6 +47,13 @@ Now run this command and answer the question you are asked. |br|
 
     sudo python manage.py createsuperuser
 
+You might want to populate the database with some default data. |br|
+This can help you get accustomed with the application flow.
+
+.. code-block:: bash
+
+    sudo python manage.py shell < core/loaddata.py
+
 Starting the application
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
