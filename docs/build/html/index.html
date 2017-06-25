@@ -162,16 +162,27 @@
   <div class="section" id="outsourcer">
 <h1>OutSourcer<a class="headerlink" href="#outsourcer" title="Permalink to this headline">¶</a></h1>
 <p>OutSourcer is a self-hosted, minimalist Backend API which aims to ease the development of B2B project-bidding applications. <br /> <br />
-OutSourcer is composed of a &#8220;Browsable API&#8221; and an &#8220;Admin Interface&#8221;. <br /> <br /></p>
+OutSourcer is composed of a &#8220;Browsable API&#8221; and an &#8220;Admin Interface&#8221;. <br /></p>
+<p>At this point, OutSourcer provides boilerplate code for giving a boost in starting your project. While the API is functional, you will more than likely need to tune it, cause no project is the same.</p>
 <div class="section" id="how-does-it-wo-work">
 <h2>How does it wo work?<a class="headerlink" href="#how-does-it-wo-work" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><strong>Users</strong> can create <strong>Companies</strong></li>
 <li><strong>Companies</strong> can publish <strong>Projects</strong></li>
-<li><strong>Companies</strong> can bid on other companies’ <strong>Projects</strong>, as long as the user owns the company that is posting the project.</li>
+<li><strong>Companies</strong> can bid on other companies’ <strong>Projects</strong></li>
 <li><strong>Projects</strong> fall into <strong>Categories</strong></li>
-<li><strong>Companies</strong> can add <strong>Comments</strong> about other companies on a <strong>Project</strong>, if the project belongs to the company that is adding the comment.</li>
+<li><strong>Companies</strong> can add <strong>Comments</strong> about other companies on a <strong>Project</strong>.</li>
 <li><strong>Companies</strong> can add <strong>Recommendations</strong> for other companies.</li>
+</ul>
+</div>
+<div class="section" id="how-is-ownership-implemented">
+<h2>How is ownership implemented?<a class="headerlink" href="#how-is-ownership-implemented" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Companies can publish projects, as long as the authenticated user owns the company that is posting the project.</li>
+<li>Companies can only post comments on projects that they have published (This one will change in a future release).</li>
+<li>Users can edit/delete only their own companies.</li>
+<li>Generally any edit/delete operation is ownership-based.</li>
+<li>As a general rule, companies belong to users and anything else belongs to companies.</li>
 </ul>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Documentation</span></p>
